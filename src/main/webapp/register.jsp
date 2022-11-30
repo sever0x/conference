@@ -1,27 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
 </head>
 <body>
-<div align="center">
-    <h1>Register Form</h1>
-    <form action="<%= request.getContextPath() %>/register" method="post">
-        <table style="with: 80%">
-            <tr>
-                <td>Login</td>
-                <td><input type="text" name="login" /></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name="password" /></td>
-            </tr>
-        </table>
-        <input type="submit" value="Submit" />
-    </form>
-</div>
+<form action="<%= request.getContextPath() %>/register" method="post">
+    <div class="container">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+
+        <label for="login"><b>Login</b></label>
+        <input type="text" placeholder="Enter Login" name="login" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+<%--        <label for="psw-repeat"><b>Repeat Password</b></label>--%>
+<%--        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>--%>
+<%--        <hr>--%>
+
+        <button type="submit" class="registerbtn">Register</button>
+    </div>
+
+    <div class="signin">
+        <p>Already have an account? <a href="login/login.html">Sign in</a></p>
+    </div>
+</form>
 </body>
 </html>
