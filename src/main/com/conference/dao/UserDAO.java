@@ -1,40 +1,18 @@
 package com.conference.dao;
 
-import com.conference.config.ConnectionConfig;
 import com.conference.model.User;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAO {
+public interface UserDAO {
 
-    public List<User> index() {
-        List<User> users = new ArrayList<>();
+    void saveNewUser(User user);
 
-        try {
-            Statement statement = ConnectionConfig.connection.createStatement();
-            String SQL = "select * from user";
-            ResultSet resultSet = statement.executeQuery(SQL);
+    void updateUser(User user);
 
-            while (resultSet.next()) {
-                User user = new User();
+    User getUserById(int id);
 
-                user.setId(resultSet.getInt("id"));
-                user.setLogin(resultSet.getString("login"));
-                user.setPassword(resultSet.getString("password"));
+    void deleteUser(User user);
 
-                users.add(user);
-            }
-
-            resultSet.close();
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return users;
-    }
-
-
+    List<User> getAllUsers();
 }

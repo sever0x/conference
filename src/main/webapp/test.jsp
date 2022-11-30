@@ -1,9 +1,12 @@
 <%@ page import="com.conference.model.User" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <html>
 <body>
-<h3>Users Information</h3>
-<br>
+<div>
+    <h3>Users Information</h3>
+</div>
+<div>
 <%
     ArrayList<User> users = (ArrayList<User>) request.getAttribute("users");
 
@@ -11,5 +14,6 @@
         response.getWriter().println("Login: " + user.getLogin() + " | Password: " + user.getPassword());
     }
 %>
+</div>
 </body>
 </html>
