@@ -23,5 +23,6 @@
 </table>
 <br>
 <a href="/register">Register</a>
+<a href="/login.jsp">Login</a>
 </body>
 </html>
