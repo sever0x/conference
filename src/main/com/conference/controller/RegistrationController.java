@@ -3,12 +3,12 @@ package com.conference.controller;
 import com.conference.dao.UserDAO;
 import com.conference.model.User;
 import com.conference.service.UserService;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/register")
@@ -32,5 +32,10 @@ public class RegistrationController extends HttpServlet {
         }
 
         resp.sendRedirect(req.getContextPath() + "/hello");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("register.jsp").forward(req, resp);
     }
 }
