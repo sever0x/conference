@@ -23,6 +23,7 @@
 </table>
 <br>
 <a href="/register">Register</a>
-<a href="/login.jsp">Login</a>
+<a href="/login">Login</a>
+<a href="/logout">Logout</a>
 </body>
 </html>

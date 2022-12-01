@@ -36,6 +36,26 @@ public class UserService implements UserDAO {
     }
 
     @Override
+    public User getUserByLogin(String login) {
+        User user = new User();
+
+        try (Statement statement = ConnectionConfig.connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(SQLUser.GET_BY_LOGIN.QUERY)) {
+
+            if (resultSet.next()) {
+                user.setId(resultSet.getInt("id"));
+                user.setLogin(resultSet.getString("login"));
+                user.setPassword(resultSet.getString("password"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
+    @Override
     public void deleteUser(User user) {
 
     }
@@ -66,7 +86,8 @@ public class UserService implements UserDAO {
 
 enum SQLUser {
     SELECT_ALL("select * from user"),
-    GET("select * from user where id = (?)"),
+    GET_BY_ID("select * from user where id = (?)"),
+    GET_BY_LOGIN("select * from user where login = (?)"),
     SET(""),
     INSERT("insert into user (login, password) values ((?), (?))");
 
