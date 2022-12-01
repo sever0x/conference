@@ -34,7 +34,14 @@ form {
 
 .container {
     padding: 16px;
-    border-radius: 25px;
+
+    /* glassmorphism */
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .container p {
@@ -46,7 +53,7 @@ form {
 }
 
 hr {
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
 
@@ -58,7 +65,7 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: none;
     background: #f1f1f1;
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
 input[type=text]:focus, input[type=password]:focus {
@@ -82,7 +89,7 @@ hr {
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
 .registerbtn:hover {
@@ -94,6 +101,10 @@ a {
     color: dodgerblue;
 }
 
+button a {
+    color: #f1f1f1;
+    text-decoration: none;
+}
 .signin {
     margin-top: 15px;
 }
