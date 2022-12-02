@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/hello")
+@WebServlet({"/", ""})
 public class TestController extends HttpServlet {
 
     private UserDAO userService = new UserService();

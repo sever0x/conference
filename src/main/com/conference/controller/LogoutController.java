@@ -19,6 +19,6 @@ public class LogoutController extends HttpServlet {
         session.removeAttribute("password");
         session.removeAttribute("login");
 
-        resp.sendRedirect(req.getContextPath() + "/hello");
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 }

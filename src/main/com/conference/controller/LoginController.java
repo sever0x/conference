@@ -1,8 +1,6 @@
 package com.conference.controller;
 
 import com.conference.config.ConnectionConfig;
-import com.conference.dao.UserDAO;
-import com.conference.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
