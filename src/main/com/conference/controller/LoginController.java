@@ -1,6 +1,7 @@
 package com.conference.controller;
 
 import com.conference.config.ConnectionConfig;
+import com.conference.model.Role;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -32,6 +33,7 @@ public class LoginController extends HttpServlet {
             if (resultSet.next()) {
                 req.getSession().setAttribute("password", password);
                 req.getSession().setAttribute("login", login);
+                req.getSession().setAttribute("role", Role.USER);
 
                 req.getRequestDispatcher("welcomePage.jsp").forward(req, resp);
             } else {

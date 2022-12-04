@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet({"/", ""})
+@WebServlet("")
 public class TestController extends HttpServlet {
 
     private UserDAO userService = new UserService();
@@ -23,9 +23,12 @@ public class TestController extends HttpServlet {
         List<User> users = userService.getAllUsers();
 
         HttpSession session = req.getSession();
-        System.out.println(session.getAttribute("login"));
+        String login = String.valueOf(session.getAttribute("login"));
+        if (!login.equals("null")) {
+            req.setAttribute("user", userService.getUserByLogin(login));
+        }
 
         req.setAttribute("users", users);
-        req.getRequestDispatcher("test.jsp").forward(req, resp);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }

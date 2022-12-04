@@ -1,6 +1,7 @@
 package com.conference.controller;
 
 import com.conference.dao.UserDAO;
+import com.conference.model.Role;
 import com.conference.model.User;
 import com.conference.service.UserService;
 import jakarta.servlet.ServletException;
@@ -20,10 +21,12 @@ public class RegistrationController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
+        String email = req.getParameter("email");
 
         User user = new User();
         user.setLogin(login);
         user.setPassword(password);
+        user.setEmail(email);
 
         try {
             userService.saveNewUser(user);
@@ -31,7 +34,7 @@ public class RegistrationController extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect(req.getContextPath() + "/hello");
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 
     @Override
