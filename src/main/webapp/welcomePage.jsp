@@ -57,14 +57,19 @@
 
 <body>
     <div class="container">
-        <div id="word" class="cssanimation hu__hu__">Здесь будет личный кабинет</div>
-        <!-- <button></button> -->
+        <select class="change-lang">
+            <option value="ua">UA</option>
+            <option value="en">EN</option>
+        </select>
+        <div id="word" class="lng-text cssanimation hu__hu__">Oops. It will be a digital paper</div>
     </div>
 
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script> 
-    <script type="text/javascript" src="/js/cssanimation-gsap.js"></script>
+    <script type="text/javascript" src="../webapp/html/js/cssanimation-gsap.js"></script>
+    <script type="module" src="../webapp/html/js/lang.js"></script>
+<script type="module" src="../webapp/html/changeLang.js"></script>
 </body>
 
 
