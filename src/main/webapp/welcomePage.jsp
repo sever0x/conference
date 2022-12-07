@@ -67,9 +67,9 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script> 
-    <script type="text/javascript" src="../webapp/html/js/cssanimation-gsap.js"></script>
-    <script type="module" src="../webapp/html/js/lang.js"></script>
-<script type="module" src="../webapp/html/changeLang.js"></script>
+    <script type="text/javascript" src="../js/cssanimation-gsap.js"></script>
+    <script type="module" src="../js/lang.js"></script>
+<script type="module" src="../js/changeLang.js"></script>
 </body>
 
 
