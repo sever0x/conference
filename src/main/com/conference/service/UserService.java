@@ -38,7 +38,27 @@ public class UserService implements UserDAO {
 
     @Override
     public User getUserById(int id) {
-        return null;
+        User user = new User();
+
+        try (PreparedStatement statement = ConnectionConfig.connection
+                .prepareStatement(SQLUser.GET_BY_ID.QUERY)) {
+            statement.setInt(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                user.setId(resultSet.getInt("id"));
+                user.setLogin(resultSet.getString("login"));
+                user.setPassword(resultSet.getString("password"));
+                user.setEmail(resultSet.getString("email"));
+                user.setRole(Role.valueOf(resultSet.getString("role")));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return user;
     }
 
     @Override

@@ -20,8 +20,12 @@ public class SettingsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
-        String login = (String) httpSession.getAttribute("login");
-        User user = userService.getUserByLogin(login);
+//        String login = (String) httpSession.getAttribute("login");
+//        User user = userService.getUserByLogin(login);
+
+        int id = (int) httpSession.getAttribute("id");
+        User user = userService.getUserById(id);
+
         req.setAttribute("user",user);
         req.getRequestDispatcher("settings.jsp").forward(req,resp);
 
