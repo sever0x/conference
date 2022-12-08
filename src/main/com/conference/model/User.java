@@ -3,10 +3,12 @@ package com.conference.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class User {
     private int id;
 
@@ -23,4 +25,6 @@ public class User {
         this.password = password;
         this.email = email;
     }
+
+
 }
