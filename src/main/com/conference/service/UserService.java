@@ -31,6 +31,8 @@ public class UserService implements UserDAO {
     public void updateUser(User user) {
         try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLUser.UPDATE.QUERY)) {
             statement.setString(1, user.getLogin());
+            statement.setInt(2, user.getId());
+            statement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -120,7 +122,7 @@ enum SQLUser {
     SELECT_ALL("select * from user"),
     GET_BY_ID("select * from user where id=?"),
     GET_BY_LOGIN("select * from user where login=?"),
-    UPDATE("update user set login=(?) where login=(?)"),
+    UPDATE("update user set login=(?) where id=(?)"),
     INSERT("insert into user (login, password, email) values ((?), (?), (?))");
 
     final String QUERY;

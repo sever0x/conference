@@ -26,30 +26,27 @@ public class SettingsController extends HttpServlet {
         int id = (int) httpSession.getAttribute("id");
         User user = userService.getUserById(id);
 
-        req.setAttribute("user",user);
-        req.getRequestDispatcher("settings.jsp").forward(req,resp);
+        req.setAttribute("user", user);
+        req.getRequestDispatcher("settings.jsp").forward(req, resp);
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       String newLogin = (String)req.getAttribute("login");
-       String newEmail = (String)req.getAttribute("email");
-       String newPassword = (String)req.getAttribute("password");
+        String newLogin = (String) req.getAttribute("login");
+        String newEmail = (String) req.getAttribute("email");
+        String newPassword = (String) req.getAttribute("password");
 
         HttpSession httpSession = req.getSession();
         String oldLogin = (String) httpSession.getAttribute("login");
-        if(newLogin!=oldLogin){
-            httpSession.setAttribute("login",newLogin);
+        if (newLogin != oldLogin) {
+            httpSession.setAttribute("login", newLogin);
+            User user = userService.getUserById((Integer) httpSession.getAttribute("id"));
+            user.setLogin(newLogin);
+            userService.updateUser(user);
 
         }
-
-
-
-
-
-
-
+        resp.sendRedirect(req.getContextPath() + "/");
 
     }
 }
