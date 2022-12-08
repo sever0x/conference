@@ -33,18 +33,20 @@ public class SettingsController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String newLogin = (String) req.getAttribute("login");
-        String newEmail = (String) req.getAttribute("email");
-        String newPassword = (String) req.getAttribute("password");
+        // FIXME Мы перепутали getParameter с getAttribute
+        String newLogin = req.getParameter("login");
+        String newEmail = req.getParameter("email");
+        String newPassword = req.getParameter("password");
 
         HttpSession httpSession = req.getSession();
         String oldLogin = (String) httpSession.getAttribute("login");
-        if (newLogin != oldLogin) {
+
+        if (!newLogin.equals(oldLogin)) {
             httpSession.setAttribute("login", newLogin);
-            User user = userService.getUserById((Integer) httpSession.getAttribute("id"));
+            User user = userService.getUserById((int) httpSession.getAttribute("id"));
+
             user.setLogin(newLogin);
             userService.updateUser(user);
-
         }
         resp.sendRedirect(req.getContextPath() + "/");
 
