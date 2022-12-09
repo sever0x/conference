@@ -2,7 +2,7 @@ import {langArr} from './lang.js';
         // pick the element
         const select = document.querySelector('select');
 
-        const allLang = ['en', 'ua'];
+        const allLang = ['en', 'ua'];     
 
         // registering listener
         select.addEventListener('change', changeURLLanguage);

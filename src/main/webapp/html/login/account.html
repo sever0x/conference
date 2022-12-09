@@ -25,6 +25,26 @@
             -webkit-text-fill-color: transparent;
             animation: gradient 15s ease infinite;
         }
+
+        #word-en {
+            font-size: 200%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 50px;
+            background: -webkit-linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 15s ease infinite;
+        }
+
+        #word-ua {
+            font-size: 200%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 50px;
+            background: -webkit-linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 15s ease infinite;
+        }
     </style>
 
     <title>Account</title>
@@ -32,10 +52,10 @@
 
 <body>
     <div class="container">
-        <select class="change-lang">
+        <!-- <select class="change-lang">
             <option value="ua">UA</option>
             <option value="en">EN</option>
-        </select>
+        </select> -->
 
         <!-- <div class="lang df">
             <button value="en" class="active" id="lang-en">EN</button>
@@ -43,7 +63,8 @@
         </div> -->
 
         <!-- <button class="change-lang" value="en">EN</button> -->
-        <div id="word" class="lng-text cssanimation hu__hu__">Oops. It will be a digital paper</div>
+        <div id="word-en" class="lng-text cssanimation hu__hu__">Oops. It will be a digital paper</div>
+        <div id="word-ua" class="lng-text cssanimation hu__hu__" style="display: none;">Ой-йой. Мабудь буде якийсь цифровий папірець</div>
         
     </div>
 

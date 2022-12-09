@@ -34,22 +34,6 @@
             animation: gradient 15s ease infinite;
         }
 
-        button {
-            height: 100px;
-            width: 100px;
-            background: #fff;
-            border-radius: 50%;
-            border: 2px solid rgba(0, 0, 0, 0.1);
-            border-top-color: #fff;
-            border-bottom-color: #fff;
-            animation: spinner3 800ms ease infinite;
-        }
-
-        @keyframes spinner3 {
-            to {
-                transform: rotate(360deg);
-            }
-        }
     </style>
 
     <title>Account</title>
@@ -57,19 +41,28 @@
 
 <body>
     <div class="container">
-        <select class="change-lang">
+        <!-- <select class="change-lang">
             <option value="ua">UA</option>
             <option value="en">EN</option>
-        </select>
-        <div id="word" class="lng-text cssanimation hu__hu__">Oops. It will be a digital paper</div>
+        </select> -->
+
+        <!-- <div class="lang df">
+            <button value="en" class="active" id="lang-en">EN</button>
+            <button value="ua" id="lang-ua">UA</button>
+        </div> -->
+
+        <!-- <button class="change-lang" value="en">EN</button> -->
+        <div id="word-en" class="lng-text cssanimation hu__hu__">Oops. It will be a digital paper</div>
+        <div id="word-ua" class="lng-text cssanimation hu__hu__" style="display: none;">Ой-йой. Мабудь буде якийсь цифровий папірець</div>
+        
     </div>
 
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script> 
-    <script type="text/javascript" src="../js/cssanimation-gsap.js"></script>
-    <script type="module" src="../js/lang.js"></script>
-<script type="module" src="../js/changeLang.js"></script>
+    <script type="text/javascript" src="../webapp/html/js/cssanimation-gsap.js"></script>
+    <script type="module" src="../webapp/html/js/lang.js"></script>
+<script type="module" src="../webapp/html/changeLang.js"></script>
 </body>
 
 
