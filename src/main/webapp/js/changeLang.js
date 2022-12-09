@@ -1,4 +1,6 @@
 import {langArr} from './lang.js';
+
+
         // pick the element
         const select = document.querySelector('select');
 
@@ -30,15 +32,3 @@ import {langArr} from './lang.js';
         changeLanguage()
         console.log(langArr)
 
-//         document.querySelectorAll('.lang button').forEach((b) => b.addEventListener('click', setLang));
-
-// function setLang() {
-//   for (let key in langArr.text) {
-//     console.log(key)
-//     let elem = document.getElementById('word' + key).textContent
-//     console.log(elem)
-//     if (elem) {
-//       elem.textContent.innerHTML = langArr[key][this.value];
-//     }
-//   }
-// }

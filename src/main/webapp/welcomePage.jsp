@@ -14,27 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-
-        #word {
-            font-size: 200%;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 50px;
-            background: -webkit-linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient 15s ease infinite;
-        }
-
-    </style>
+    <link rel="stylesheet" href="/src/main/webapp/css/welcomePage.css">
 
     <title>Account</title>
 </head>
@@ -60,9 +40,9 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script> 
-    <script type="text/javascript" src="../webapp/html/js/cssanimation-gsap.js"></script>
-    <script type="module" src="../webapp/html/js/lang.js"></script>
-<script type="module" src="../webapp/html/changeLang.js"></script>
+    <script type="text/javascript" src="/src/main/webapp/html/js/cssanimation-gsap.js"></script>
+    <script type="module" src="/src/main/webapp/html/js/lang.js"></script>
+    <script type="module" src="/src/main/webapp/html/changeLang.js"></script>
 </body>
 
 

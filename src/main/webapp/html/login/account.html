@@ -6,46 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-
-        #word {
-            font-size: 200%;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 50px;
-            background: -webkit-linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient 15s ease infinite;
-        }
-
-        #word-en {
-            font-size: 200%;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 50px;
-            background: -webkit-linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient 15s ease infinite;
-        }
-
-        #word-ua {
-            font-size: 200%;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 50px;
-            background: -webkit-linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient 15s ease infinite;
-        }
-    </style>
+    <link rel="stylesheet" href="/src/main/webapp/css/welcomePage.css">
 
     <title>Account</title>
 </head>
@@ -55,23 +16,35 @@
         <!-- <select class="change-lang">
             <option value="ua">UA</option>
             <option value="en">EN</option>
-        </select> -->
+        </select>  -->
 
-        <!-- <div class="lang df">
-            <button value="en" class="active" id="lang-en">EN</button>
-            <button value="ua" id="lang-ua">UA</button>
-        </div> -->
+        <div class="container-left">
+            <!-- <div id="word" class="lng-text cssanimation hu__hu__">Oops. It will be a digital paper</div> -->
+        </div>
 
-        <!-- <button class="change-lang" value="en">EN</button> -->
-        <div id="word-en" class="lng-text cssanimation hu__hu__">Oops. It will be a digital paper</div>
-        <div id="word-ua" class="lng-text cssanimation hu__hu__" style="display: none;">Ой-йой. Мабудь буде якийсь цифровий папірець</div>
-        
+        <div class="container-center">
+            <div class="test-div"></div>
+            <div class="test-div"></div>
+            <div class="test-div"></div>
+            <div class="test-div"></div>
+            <div class="test-div"></div>
+            <div class="test-div"></div>
+            <div class="test-div"></div>
+            <div class="test-div"></div>
+            <div class="test-div"></div>
+            <div class="test-div"></div>
+            
+        </div>
+
+        <div class="container-right">
+
+        </div>
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script> 
-<script type="text/javascript" src="../js/cssanimation-gsap.js"></script>
-<script type="module" src="../js/lang.js"></script>
-<script type="module" src="../js/changeLang.js"></script>
+<script type="text/javascript" src="/src/main/webapp/js/cssanimation-gsap.js"></script>
+<script type="module" src="/src/main/webapp/js/lang.js"></script>
+<!-- <script type="module" src="/src/main/webapp/js/changeLang.js"></script> -->
 </body>
 
 
