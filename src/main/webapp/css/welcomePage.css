@@ -191,6 +191,10 @@ body {
     transition: 0.7s
 }
 
+/* .scroll {
+    margin-left: 10px;
+}
+
 /*.scroll::-webkit-scrollbar {*/
 /*    width: 5px;*/
 /*}*/
@@ -203,15 +207,13 @@ body {
 /*    background: #B570FB;*/
 /*}*/
 .scroll::-webkit-scrollbar {
-    width: 16px;
+    width: 5px;
 }
 
 .scroll::-webkit-scrollbar-track {
-    background: rgba( 255, 255, 255, 0.1 );
-    border-radius: 10px;
+    background: #C288FC;
 }
 
 .scroll::-webkit-scrollbar-thumb {
-    background: rgba( 0, 0, 0, 0.2 );
-    border-radius: 10px;
+    background: #B570FB;
 }
