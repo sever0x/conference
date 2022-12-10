@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="container-center">
+        <div class="container-center scroll">
             <div class="container-article">
                 <div class="conference-header">
                     <h2>Conference topic</h2>
