@@ -39,15 +39,14 @@ public class SettingsController extends HttpServlet {
         String newPassword = req.getParameter("password");
 
         HttpSession httpSession = req.getSession();
-        String oldLogin = (String) httpSession.getAttribute("login");
 
-        if (!newLogin.equals(oldLogin)) {
-            httpSession.setAttribute("login", newLogin);
-            User user = userService.getUserById((int) httpSession.getAttribute("id"));
+        httpSession.setAttribute("login", newLogin);
 
-            user.setLogin(newLogin);
-            userService.updateUser(user);
-        }
+        User user = userService.getUserById((int) httpSession.getAttribute("id"));
+        user.setLogin(newLogin);
+        user.setEmail(newEmail);
+        userService.updateUser(user);
+
         resp.sendRedirect(req.getContextPath() + "/");
 
     }

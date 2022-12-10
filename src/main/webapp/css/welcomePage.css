@@ -116,7 +116,7 @@ body {
     margin-top: auto;
     margin-right: 5px;
     margin-bottom: 5px;
-    gap: 15px;
+    gap: 4.5px;
     
 
 }
@@ -150,6 +150,7 @@ body {
 
 .container-left .edit-buttons {
     display: flex;
+    gap: 4.5px;
 }
 
 .container-left .edit-buttons button {
@@ -190,14 +191,27 @@ body {
     transition: 0.7s
 }
 
+/*.scroll::-webkit-scrollbar {*/
+/*    width: 5px;*/
+/*}*/
+
+/*.scroll::-webkit-scrollbar-track {*/
+/*    background: #C288FC;*/
+/*}*/
+
+/*.scroll::-webkit-scrollbar-thumb {*/
+/*    background: #B570FB;*/
+/*}*/
 .scroll::-webkit-scrollbar {
-    width: 5px;
+    width: 16px;
 }
 
 .scroll::-webkit-scrollbar-track {
-    background: #C288FC;
+    background: rgba( 255, 255, 255, 0.1 );
+    border-radius: 10px;
 }
 
 .scroll::-webkit-scrollbar-thumb {
-    background: #B570FB;
+    background: rgba( 0, 0, 0, 0.2 );
+    border-radius: 10px;
 }

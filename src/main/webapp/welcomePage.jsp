@@ -44,8 +44,6 @@
             <form action="<%= request.getContextPath() %>/logout">
                 <button>Log Out</button>
             </form>
-<%--            <button>Edit</button>--%>
-<%--            <button>Log Out</button>--%>
         </div>
     </div>
 
