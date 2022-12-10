@@ -35,7 +35,7 @@ body {
 .container-left {
     padding: 20px;
     width: 25vw;
-    height: 70vh;
+    height: 76vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,7 +57,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 40vw;
-    height: 70vh;
+    height: 76vh;
     overflow:auto;
 
      /* glassmorphism */
@@ -71,7 +71,7 @@ body {
 
 .container-right {
     width: 25vw;
-    height: 70vh;
+    height: 76vh;
 
      /* glassmorphism */
      background: rgba( 255, 255, 255, 0.1 );
