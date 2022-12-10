@@ -24,17 +24,87 @@
         <!-- <select class="change-lang">
             <option value="ua">UA</option>
             <option value="en">EN</option>
-        </select> -->
+        </select>  -->
 
-        <!-- <div class="lang df">
-            <button value="en" class="active" id="lang-en">EN</button>
-            <button value="ua" id="lang-ua">UA</button>
-        </div> -->
+        <div class="container-left">
+            <!-- <div id="word" class="lng-text cssanimation hu__hu__">Oops. It will be a digital paper</div> -->
+            <div class="logo-user">
+                <div class="photo-user">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div class="contacts">
+                <p class="email">qwerty@qwerty.com</p>
+                <p class="phone">000-000-00-00</p>
+            </div>
+            <div class="edit-buttons">
+                <button>Edit</button>
+                <button>Log Out</button>
+            </div>
+        </div>
 
-        <!-- <button class="change-lang" value="en">EN</button> -->
-        <div id="word-en" class="lng-text cssanimation hu__hu__">Oops. It will be a digital paper</div>
-        <div id="word-ua" class="lng-text cssanimation hu__hu__" style="display: none;">Ой-йой. Мабудь буде якийсь цифровий папірець</div>
-        
+        <div class="container-center">
+            <div class="container-article">
+                <div class="conference-header">
+                    <h2>Conference topic</h2>
+                </div>
+                <div class="conference-main">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur 
+                    eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo dolorum doloremque. Omnis!
+                    Cumque fugit cum consectetur 
+                    eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo dolorum doloremque. Omnis!
+                </div>
+                <div class="conference-footer">
+                    <button>Speaker</button>
+                    <button>Join</button>
+                </div>
+            </div>
+            <div class="container-article">
+                <div class="conference-header">
+                    <h2>Conference topic</h2>
+                </div>
+                <div class="conference-main">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur 
+                    eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo dolorum doloremque. Omnis!
+                </div>
+                <div class="conference-footer">
+                    <button>Speaker</button>
+                    <button>Join</button>
+                </div>
+            </div>
+            <div class="container-article">
+                <div class="conference-header">
+                    <h2>Conference topic</h2>
+                </div>
+                <div class="conference-main">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur 
+                    eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo dolorum doloremque. Omnis!
+                </div>
+                <div class="conference-footer">
+                    <button>Speaker</button>
+                    <button>Join</button>
+                </div>
+            </div>
+            <div class="container-article">
+                <div class="conference-header">
+                    <h2>Conference topic</h2>
+                </div>
+                <div class="conference-main">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur 
+                    eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo dolorum doloremque. Omnis!
+                </div>
+                <div class="conference-footer">
+                    <button>Speaker</button>
+                    <button>Join</button>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <div class="container-right">
+            <button>Add event</button>
+        </div>
     </div>
 
 
