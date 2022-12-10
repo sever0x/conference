@@ -100,7 +100,6 @@ public class UserService implements UserDAO {
         try (Statement statement = ConnectionConfig.connection.createStatement();
              
              ResultSet resultSet = statement.executeQuery(SQLUser.SELECT_ALL.QUERY)) {
-            ResultSet resultSet1 = statement.executeQuery(SQLUser.SELECT_ALL.QUERY);
             while (resultSet.next()) {
                 User user = new User();
 

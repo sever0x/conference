@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,65 +49,67 @@
     </div>
 
     <div class="container-center scroll">
-        <div class="container-article">
-            <div class="conference-header">
-                <h2>Conference topic</h2>
+        <c:forEach items="${test}" var="t">
+            <div class="container-article">
+                <div class="conference-header">
+                    <h2>Conference topic</h2>
+                </div>
+                <div class="conference-main">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur
+                    eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo
+                    dolorum doloremque. Omnis!
+                    Cumque fugit cum consectetur
+                    eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo
+                    dolorum doloremque. Omnis!
+                </div>
+                <div class="conference-footer">
+                    <button>Speaker</button>
+                    <button>Join</button>
+                </div>
             </div>
-            <div class="conference-main">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur
-                eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo
-                dolorum doloremque. Omnis!
-                Cumque fugit cum consectetur
-                eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo
-                dolorum doloremque. Omnis!
-            </div>
-            <div class="conference-footer">
-                <button>Speaker</button>
-                <button>Join</button>
-            </div>
-        </div>
-        <div class="container-article">
-            <div class="conference-header">
-                <h2>Conference topic</h2>
-            </div>
-            <div class="conference-main">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur
-                eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo
-                dolorum doloremque. Omnis!
-            </div>
-            <div class="conference-footer">
-                <button>Speaker</button>
-                <button>Join</button>
-            </div>
-        </div>
-        <div class="container-article">
-            <div class="conference-header">
-                <h2>Conference topic</h2>
-            </div>
-            <div class="conference-main">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur
-                eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo
-                dolorum doloremque. Omnis!
-            </div>
-            <div class="conference-footer">
-                <button>Speaker</button>
-                <button>Join</button>
-            </div>
-        </div>
-        <div class="container-article">
-            <div class="conference-header">
-                <h2>Conference topic</h2>
-            </div>
-            <div class="conference-main">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur
-                eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo
-                dolorum doloremque. Omnis!
-            </div>
-            <div class="conference-footer">
-                <button>Speaker</button>
-                <button>Join</button>
-            </div>
-        </div>
+        </c:forEach>
+        <%--        <div class="container-article">--%>
+        <%--            <div class="conference-header">--%>
+        <%--                <h2>Conference topic</h2>--%>
+        <%--            </div>--%>
+        <%--            <div class="conference-main">--%>
+        <%--                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur--%>
+        <%--                eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo--%>
+        <%--                dolorum doloremque. Omnis!--%>
+        <%--            </div>--%>
+        <%--            <div class="conference-footer">--%>
+        <%--                <button>Speaker</button>--%>
+        <%--                <button>Join</button>--%>
+        <%--            </div>--%>
+        <%--        </div>--%>
+        <%--        <div class="container-article">--%>
+        <%--            <div class="conference-header">--%>
+        <%--                <h2>Conference topic</h2>--%>
+        <%--            </div>--%>
+        <%--            <div class="conference-main">--%>
+        <%--                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur--%>
+        <%--                eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo--%>
+        <%--                dolorum doloremque. Omnis!--%>
+        <%--            </div>--%>
+        <%--            <div class="conference-footer">--%>
+        <%--                <button>Speaker</button>--%>
+        <%--                <button>Join</button>--%>
+        <%--            </div>--%>
+        <%--        </div>--%>
+        <%--        <div class="container-article">--%>
+        <%--            <div class="conference-header">--%>
+        <%--                <h2>Conference topic</h2>--%>
+        <%--            </div>--%>
+        <%--            <div class="conference-main">--%>
+        <%--                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur--%>
+        <%--                eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo--%>
+        <%--                dolorum doloremque. Omnis!--%>
+        <%--            </div>--%>
+        <%--            <div class="conference-footer">--%>
+        <%--                <button>Speaker</button>--%>
+        <%--                <button>Join</button>--%>
+        <%--            </div>--%>
+        <%--        </div>--%>
 
 
     </div>
