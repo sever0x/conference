@@ -148,6 +148,10 @@ body {
     margin: 10px 0 10px 0;
 }
 
+.container-left .edit-buttons {
+    display: flex;
+}
+
 .container-left .edit-buttons button {
     width: 100px;
     height: 40px;
