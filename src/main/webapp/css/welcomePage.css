@@ -138,7 +138,7 @@ body {
 }
 
 .photo-user {
-    background-image: url(/src/main/webapp/html/assets/avatar.png);
+    background-image: url(../html/assets/avatar.png);
     background-size: cover;
     width: 100px;
     height: 100px;

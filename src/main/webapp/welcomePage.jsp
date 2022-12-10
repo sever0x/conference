@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/src/main/webapp/css/welcomePage.css">
+    <link rel="stylesheet" href="../css/welcomePage.css">
 
     <title>Account</title>
 </head>
@@ -110,9 +110,9 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script> 
-    <script type="text/javascript" src="/src/main/webapp/html/js/cssanimation-gsap.js"></script>
-    <script type="module" src="/src/main/webapp/html/js/lang.js"></script>
-    <script type="module" src="/src/main/webapp/html/changeLang.js"></script>
+    <script type="text/javascript" src="../js/cssanimation-gsap.js"></script>
+    <script type="module" src="../js/lang.js"></script>
+    <script type="module" src="../js/changeLang.js"></script>
 </body>
 
 
