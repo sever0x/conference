@@ -4,8 +4,27 @@
     box-sizing: border-box;
 }
 
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ddd;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
 .container {
-    border: 5px solid black;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -14,41 +33,155 @@
 }
 
 .container-left {
-    width: 400px;
+    padding: 20px;
+    width: 25vw;
     height: 70vh;
-    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
+    gap: 20px;
+
+
+     /* glassmorphism */
+     background: rgba( 255, 255, 255, 0.1 );
+     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+     /* backdrop-filter: blur( 10px );
+     -webkit-backdrop-filter: blur( 10px ); */
+     border-radius: 10px;
+     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .container-center {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 900px;
+    width: 40vw;
     height: 70vh;
-    border: 5px solid black;
     overflow:auto;
+
+     /* glassmorphism */
+     background: rgba( 255, 255, 255, 0.1 );
+     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+     /* backdrop-filter: blur( 10px );
+     -webkit-backdrop-filter: blur( 10px ); */
+     border-radius: 10px;
+     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .container-right {
-    width: 400px;
+    width: 25vw;
     height: 70vh;
-    border: 5px solid black;
+
+     /* glassmorphism */
+     background: rgba( 255, 255, 255, 0.1 );
+     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+     /* backdrop-filter: blur( 10px );
+     -webkit-backdrop-filter: blur( 10px ); */
+     border-radius: 10px;
+     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
-.test-div {
-    margin: 3px 3px 3px 3px;
+.container-article {
+    margin: 5px 3px 5px 3px;
     width: 70%;
     min-height: 400px;
-    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+
+    overflow-x:hidden;
+    
+    /* glassmorphism */
+    background: rgba( 255, 255, 255, 0.1 );
+    /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+    /* backdrop-filter: blur( 10px ); */
+    /* -webkit-backdrop-filter: blur( 10px ); */
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
-#word {
-    font-size: 200%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
-    background: -webkit-linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradient 15s ease infinite;
+.conference-header {
+    margin: 20px 10px 10px 20px;
+
+}
+.conference-main {
+    margin: 20px 10px 10px 20px;
+    
+
+}
+.conference-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-top: auto;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    gap: 15px;
+    
+
 }
 
+.conference-footer button {
+    width: 100px;
+    height: 40px;
+    
+    color: #ddd;
+    background: rgba( 255, 255, 255, 0.1 );
+    border: none;
+    border-radius: 10px;
+}
+
+.conference-footer button:hover {
+    color: #23a6d5;
+    box-shadow: 1px 1px 0 0 ;
+    transition: 0.7s
+}
+
+.photo-user {
+    background-image: url(/src/main/webapp/html/assets/avatar.png);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+}
+
+.phone {
+    margin: 10px 0 10px 0;
+}
+
+.container-left .edit-buttons button {
+    width: 100px;
+    height: 40px;
+    
+    color: #ddd;
+    background: rgba( 255, 255, 255, 0.1 );
+    border: none;
+    border-radius: 10px;
+}
+
+.container-left .edit-buttons button:hover { 
+    color: #23a6d5;
+    box-shadow: 1px 1px 0 0 ;
+    transition: 0.7s
+}
+
+.container-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-right button {
+    width: 100px;
+    height: 40px;
+    
+    color: #ddd;
+    background: rgba( 255, 255, 255, 0.1 );
+    border: none;
+    border-radius: 10px;
+}
+
+.container-right button:hover { 
+    color: #23a6d5;
+    box-shadow: 1px 1px 0 0 ;
+    transition: 0.7s
+}
