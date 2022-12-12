@@ -4,7 +4,7 @@ import com.conference.config.ConnectionConfig;
 import com.conference.model.Event;
 
 import java.sql.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class EventService {
         try (PreparedStatement preparedStatement = ConnectionConfig.connection.prepareStatement((SQLEvent.INSERT.QUERY))) {
             preparedStatement.setString(1, event.getName());
             preparedStatement.setString(2, event.getDescribe());
-            preparedStatement.setDate(3, Date.valueOf(LocalDate.now()));
+            preparedStatement.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -47,7 +47,7 @@ public class EventService {
                 Event event = new Event();
                 event.setName(resultSet.getString("name"));
                 event.setDescribe(resultSet.getString("descr"));
-                event.setDate(resultSet.getDate("date"));
+                event.setDate(resultSet.getTimestamp("date"));
                 listEvent.add(event);
             }
         } catch (SQLException e) {

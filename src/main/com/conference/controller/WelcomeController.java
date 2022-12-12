@@ -15,6 +15,7 @@ import java.util.List;
 
 @WebServlet("/welcome")
 public class WelcomeController extends HttpServlet {
+
     private EventService eventService = new EventService();
 
     @Override

@@ -3,6 +3,7 @@ package com.conference.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Getter
@@ -14,7 +15,7 @@ public class Event {
 
     private String describe;
 
-    private Date date = new Date();
+    private Timestamp date;
 
     private String place = "Somewhere";
 

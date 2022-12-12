@@ -12,7 +12,9 @@ import java.io.IOException;
 
 @WebServlet("/eventRegistration")
 public class EventController extends HttpServlet {
-    EventService eventService = new EventService();
+
+    private EventService eventService = new EventService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("eventRegistration.jsp").forward(req, resp);
