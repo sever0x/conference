@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.conference.service.EventService" %><%--
   Created by IntelliJ IDEA.
   User: y.chernonog
   Date: 01.12.2022
@@ -49,18 +49,19 @@
     </div>
 
     <div class="container-center scroll">
-        <c:forEach items="${test}" var="t">
+        <c:forEach items="${events}" var="event">
+
             <div class="container-article">
                 <div class="conference-header">
-                    <h2>Conference topic</h2>
+                    <h2>${event.name}</h2>
                 </div>
                 <div class="conference-main">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur
-                    eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo
-                    dolorum doloremque. Omnis!
-                    Cumque fugit cum consectetur
-                    eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo
-                    dolorum doloremque. Omnis!
+                    <p>${event.describe}</p>
+                    <p>${event.date}</p>
+                    <p>${event.place}</p>
+                </div>
+                <div>
+
                 </div>
                 <div class="conference-footer">
                     <button>Speaker</button>
@@ -68,54 +69,12 @@
                 </div>
             </div>
         </c:forEach>
-        <%--        <div class="container-article">--%>
-        <%--            <div class="conference-header">--%>
-        <%--                <h2>Conference topic</h2>--%>
-        <%--            </div>--%>
-        <%--            <div class="conference-main">--%>
-        <%--                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur--%>
-        <%--                eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo--%>
-        <%--                dolorum doloremque. Omnis!--%>
-        <%--            </div>--%>
-        <%--            <div class="conference-footer">--%>
-        <%--                <button>Speaker</button>--%>
-        <%--                <button>Join</button>--%>
-        <%--            </div>--%>
-        <%--        </div>--%>
-        <%--        <div class="container-article">--%>
-        <%--            <div class="conference-header">--%>
-        <%--                <h2>Conference topic</h2>--%>
-        <%--            </div>--%>
-        <%--            <div class="conference-main">--%>
-        <%--                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur--%>
-        <%--                eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo--%>
-        <%--                dolorum doloremque. Omnis!--%>
-        <%--            </div>--%>
-        <%--            <div class="conference-footer">--%>
-        <%--                <button>Speaker</button>--%>
-        <%--                <button>Join</button>--%>
-        <%--            </div>--%>
-        <%--        </div>--%>
-        <%--        <div class="container-article">--%>
-        <%--            <div class="conference-header">--%>
-        <%--                <h2>Conference topic</h2>--%>
-        <%--            </div>--%>
-        <%--            <div class="conference-main">--%>
-        <%--                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fugit cum consectetur--%>
-        <%--                eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo--%>
-        <%--                dolorum doloremque. Omnis!--%>
-        <%--            </div>--%>
-        <%--            <div class="conference-footer">--%>
-        <%--                <button>Speaker</button>--%>
-        <%--                <button>Join</button>--%>
-        <%--            </div>--%>
-        <%--        </div>--%>
-
-
     </div>
 
     <div class="container-right">
-        <button>Add event</button>
+        <form action="<%= request.getContextPath() %>/eventRegistration">
+            <button>Add event</button>
+        </form>
     </div>
 </div>
 
