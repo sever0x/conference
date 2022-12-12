@@ -12,20 +12,24 @@
 </head>
 
 <body>
-<form action="<%= request.getContextPath() %>/eventRegistration" method="post">
-    <div>
-        <p>Event name</p>
-        <input name="name" type="text">
-    </div>
-    <div>
-        <p>Event Describe</p>
-        <textarea name="descr" cols="30" rows="10"></textarea>
-    </div>
-    <div>
+    <div class="container">
+        <form action="<%= request.getContextPath() %>/eventRegistration" method="post">
+            
+            <div>
+                <p>Event name</p>
+                <input name="name" type="text">
 
-        <button type="submit" class="registerbtn">Submit</button>
-        <%--    <input type="submit">--%>
-    </div>
+            <div>
+                <p>Event Describe</p>
+                <textarea name="descr" cols="50" rows="10"></textarea>
+            </div>
+            <div>
+        
+                <button type="submit" class="registerbtn">Submit</button>
+            </div>
+        
+        </form>
+</div>
 </body>
 
 </html>
