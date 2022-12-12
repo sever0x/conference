@@ -24,6 +24,7 @@ public class EventController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String eventName = req.getParameter("name");
         String eventDescribe = req.getParameter("descr");
+
         Event event = new Event();
         event.setName(eventName);
         event.setDescribe(eventDescribe);

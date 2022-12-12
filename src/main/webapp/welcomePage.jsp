@@ -59,6 +59,11 @@
                     <p>${event.describe}</p>
                     <p>${event.date}</p>
                     <p>${event.place}</p>
+                    <br>
+                    <p>Topics:</p>
+                    <c:forEach items="${event.topics}" var="topic">
+                        <p>${topic.name}</p>
+                    </c:forEach>
                 </div>
                 <div>
 

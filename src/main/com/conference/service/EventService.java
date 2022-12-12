@@ -2,6 +2,7 @@ package com.conference.service;
 
 import com.conference.config.ConnectionConfig;
 import com.conference.model.Event;
+import com.conference.model.Topic;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -9,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EventService {
+
+    private TopicService topicService = new TopicService();
+
     public void addEvent(Event event) {
         try (PreparedStatement preparedStatement = ConnectionConfig.connection.prepareStatement((SQLEvent.INSERT.QUERY))) {
             preparedStatement.setString(1, event.getName());
@@ -48,6 +52,7 @@ public class EventService {
                 event.setName(resultSet.getString("name"));
                 event.setDescribe(resultSet.getString("descr"));
                 event.setDate(resultSet.getTimestamp("date"));
+                event.setTopics(topicService.getAllTopics(resultSet.getInt("id")));
                 listEvent.add(event);
             }
         } catch (SQLException e) {
@@ -55,4 +60,6 @@ public class EventService {
         }
         return listEvent;
     }
+
+
 }

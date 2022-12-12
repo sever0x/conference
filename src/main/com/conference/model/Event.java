@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,6 +19,8 @@ public class Event {
     private Timestamp date;
 
     private String place = "Somewhere";
+
+    private List<Topic> topics;
 
     @Override
     public String toString() {
