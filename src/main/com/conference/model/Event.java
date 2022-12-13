@@ -18,7 +18,7 @@ public class Event {
 
     private Timestamp date;
 
-    private String place = "Somewhere";
+    private String place;
 
     private List<Topic> topics;
 

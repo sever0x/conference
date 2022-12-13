@@ -30,6 +30,6 @@ public class TestController extends HttpServlet {
         }
 
         req.setAttribute("users", users);
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        req.getRequestDispatcher("login.jsp").forward(req, resp);
     }
 }

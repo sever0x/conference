@@ -27,6 +27,7 @@
 
             <p>Topic</p>
             <input name="topic" type="text">
+            <input name="topic" type="text">
 
             <div>
 

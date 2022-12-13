@@ -14,12 +14,19 @@ public class EventService {
     private TopicService topicService = new TopicService();
 
     public void addEvent(Event event) {
-        try (PreparedStatement preparedStatement = ConnectionConfig.connection.prepareStatement((SQLEvent.INSERT.QUERY))) {
+        try (PreparedStatement preparedStatement = ConnectionConfig.connection
+                .prepareStatement(SQLEvent.INSERT.QUERY, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, event.getName());
             preparedStatement.setString(2, event.getDescribe());
             preparedStatement.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+            preparedStatement.setString(4, event.getPlace());
 
             preparedStatement.executeUpdate();
+
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            if (resultSet.next()) {
+                topicService.addTopics(event.getTopics(), resultSet.getInt(1));
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -35,7 +42,6 @@ public class EventService {
                 event.setId(resultSet.getInt("id"));
                 event.setName(resultSet.getString("name"));
                 event.setDescribe(resultSet.getString("descr"));
-
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

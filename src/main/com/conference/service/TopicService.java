@@ -1,6 +1,7 @@
 package com.conference.service;
 
 import com.conference.config.ConnectionConfig;
+import com.conference.model.Event;
 import com.conference.model.Topic;
 
 import java.sql.PreparedStatement;
@@ -21,8 +22,7 @@ public class TopicService {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Topic topic = new Topic();
-                topic.setName(resultSet.getString("name"));
+                Topic topic = new Topic(resultSet.getString("name"));
                 topics.add(topic);
             }
 
@@ -33,14 +33,17 @@ public class TopicService {
         return topics;
     }
 
-    public void addTopic(Topic topic) {
-        try (PreparedStatement preparedStatement = ConnectionConfig.connection
-                .prepareStatement((SQLEvent.INSERT.QUERY))) {
-            preparedStatement.setString(1, topic.getName());
+    public void addTopics(List<Topic> topics, int eventId) {
+        for (Topic topic : topics) {
+            try (PreparedStatement preparedStatement = ConnectionConfig.connection
+                    .prepareStatement(SQLTopic.INSERT.QUERY)) {
+                preparedStatement.setString(1, topic.getName());
+                preparedStatement.setInt(2, eventId);
 
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+                preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
