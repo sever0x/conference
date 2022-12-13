@@ -9,19 +9,34 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<h1>The input element</h1>
-
-<form action="<%= request.getContextPath() %>/settings" method="post">
-    <label for="login">Login:</label>
-    <input type="text" id="login" name="login" value="${user.login}"><br><br>
-    <label for="email">Email :</label>
-    <input type="email" id="email" name="email" value="${user.email}"><br><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password"><br><br>
-    <input type="submit" value="Submit">
+  <form action="<%= request.getContextPath() %>/settings" method="post">
+            
+    <div class="container">
+        <h1>The input elements</h1>
+    <div>
+        <label for="login">Login:</label>
+        <input type="text" id="login" name="login" value="${user.login}"><br><br>
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" value="${user.email}"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="submit" class="registerbtn"value="Submit">Submit</button>
+    </div>
+</div>
 </form>
 </body>
 </body>
 </html>
+
+<!-- <form action="<%= request.getContextPath() %>/settings" method="post">
+  <label for="login">Login:</label>
+  <input type="text" id="login" name="login" value="${user.login}"><br><br>
+  <label for="email">Email :</label>
+  <input type="email" id="email" name="email" value="${user.email}"><br><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password"><br><br>
+  <input type="submit" value="Submit">
+</form> -->
