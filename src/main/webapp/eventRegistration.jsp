@@ -32,8 +32,9 @@
 
                 <button type="submit" class="registerbtn">Submit</button>
             </div>
-
+        </div>
     </form>
+
 </div>
 </body>
 
