@@ -14,7 +14,7 @@
 
 <body>
 <div class="container">
-    <form action="<%= request.getContextPath() %>/eventRegistration" method="post">
+    <form action="/eventRegistration" method="post">
 
         <div>
             <p>Event name</p>
@@ -34,7 +34,7 @@
 
 
                 <p>Add new topic</p>
-                <button id="topic-btn" class="topic-btn-add">+</button>
+                <button type="button" id="topic-btn" class="topic-btn-add">+</button>
             </div>
 
             <div>

@@ -55,6 +55,8 @@ public class EventService {
              ResultSet resultSet = statement.executeQuery(SQLEvent.SELECT_ALL.QUERY)) {
             while (resultSet.next()) {
                 Event event = new Event();
+                event.setId(resultSet.getInt("id"));
+                event.setPlace(resultSet.getString("place"));
                 event.setName(resultSet.getString("name"));
                 event.setDescribe(resultSet.getString("descr"));
                 event.setDate(resultSet.getTimestamp("date"));
