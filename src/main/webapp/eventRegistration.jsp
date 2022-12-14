@@ -26,17 +26,48 @@
             </div>
 
             <p>Topic</p>
-            <input name="topic" type="text">
-            <input name="topic" type="text">
+            <div class="topic-container">
+
+                <div id="topic-main">
+                    <input name="topic" type="text">
+                </div>
+
+
+                <p>Add new topic</p>
+                <button id="topic-btn" class="topic-btn-add">+</button>
+            </div>
 
             <div>
-
                 <button type="submit" class="registerbtn">Submit</button>
             </div>
         </div>
     </form>
 
 </div>
+
+<script>
+    const button = document.getElementById("topic-btn");
+    const input_box = document.getElementById("topic-main");
+
+    button.addEventListener(
+        "click",
+        () => {
+            const input = document.createElement("input");
+            input.name = "topic";
+            input.type = "text";
+            addNewTopicField(input);
+        },
+        false
+    );
+
+    function addNewTopicField(input) {
+        // console.log(button);
+        // console.log(input_box);
+        input_box.append(input);
+    }
+
+
+</script>
 </body>
 
 </html>
