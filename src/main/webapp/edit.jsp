@@ -24,7 +24,7 @@
             <td>${event.date}</td>
             <td>${event.place}</td>
             <td>
-                <form action="/edit/${event.id}" method="post" >
+                <form action="/edit/${event.id}" method="get" >
                     <input type="submit" value="Edit" >
                 </form>
             </td>

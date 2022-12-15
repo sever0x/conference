@@ -16,7 +16,7 @@ public class Event {
 
     private String describe;
 
-        private Timestamp date =new Timestamp(System.currentTimeMillis());
+    private Timestamp date;
 
     private String place = "Kiev";
 

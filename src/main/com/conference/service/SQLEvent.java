@@ -5,7 +5,7 @@ enum SQLEvent{
     GET_BY_ID("select * from event where id=?"),
     //        GET_BY_LOGIN("select * from user where login=?"),
 //        UPDATE("update user set login=?, email=? where id=?"),
-    GET_TOPIC_BY_EVENT_ID("select name from topic where event_id=?"),
+    GET_TOPIC_BY_EVENT_ID("select * from topic where event_id=?"),
     INSERT("insert into event (name, descr, date, place) values ((?), (?),(?), (?))"),
     UPDATE("update event set name=?, descr=?, place=? where id=?");
 

@@ -9,22 +9,31 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.util.List;
 
-@WebServlet("/edit/*" )
+@WebServlet("/edit/*")
 public class EventEditController extends HttpServlet {
-    EventService eventService = new EventService();
-    Event event = new Event();
+
+    private EventService eventService = new EventService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       event = eventService.getEvent(1);
-        req.setAttribute("event",event);
-        req.getRequestDispatcher("/editEvent.jsp").forward(req,resp);
+        int eventId = Integer.parseInt(req.getPathInfo().substring(1));
+        Event event = eventService.getEvent(eventId);
+
+        req.setAttribute("event", event);
+        req.getRequestDispatcher("/editEvent.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req,resp);
+        Event event = new Event();
+        event.setId(Integer.parseInt(req.getPathInfo().substring(1)));
+        event.setName(req.getParameter("name"));
+        event.setDescribe(req.getParameter("describe"));
+//       event.setDate(Timestamp.valueOf((String) req.getAttribute("date")));
+        event.setPlace(req.getParameter("place"));
+        eventService.updateEvent(event);
+
+        resp.sendRedirect(req.getContextPath() + "/edit");
     }
 }

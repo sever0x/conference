@@ -2,9 +2,11 @@ package com.conference.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class Topic {
 
     private int id;
@@ -12,6 +14,11 @@ public class Topic {
     private String name;
 
     public Topic(String name) {
+        this.name = name;
+    }
+
+    public Topic(int id, String name) {
+        this.id = id;
         this.name = name;
     }
 }

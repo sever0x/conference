@@ -19,7 +19,7 @@ public class EventService {
                 .prepareStatement(SQLEvent.INSERT.QUERY, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, event.getName());
             preparedStatement.setString(2, event.getDescribe());
-            preparedStatement.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+            preparedStatement.setTimestamp(3, Timestamp.valueOf("2022-12-12 00:00:00"));
             preparedStatement.setString(4, event.getPlace());
 
             preparedStatement.executeUpdate();
@@ -43,6 +43,7 @@ public class EventService {
                 event.setId(resultSet.getInt("id"));
                 event.setName(resultSet.getString("name"));
                 event.setDescribe(resultSet.getString("descr"));
+                event.setTopics(topicService.getAllTopics(event.getId()));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -69,19 +70,20 @@ public class EventService {
         }
         return listEvent;
     }
+
     public void updateEvent(Event event) {
         try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLEvent.UPDATE.QUERY)) {
             statement.setString(1, event.getName());
             statement.setString(2, event.getDescribe());
 //            statement.setString(3, String.valueOf(event.getDate()));
             statement.setString(3, event.getPlace());
-            statement.setInt(4, 1);
+            statement.setInt(4, event.getId());
+
             statement.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 
 
 }

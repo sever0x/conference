@@ -10,22 +10,28 @@
 <head>
     <title>Title</title>
 </head>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>--%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <body>
-<form action="<%= request.getContextPath() %>/changeEvent" method="post">
+<jsp:useBean id="event" scope="request" type="com.conference.model.Event"/>
+<form action="<%= request.getContextPath() %>/edit/${event.id}" method="post">
 
         <div>
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" cut value="${event.name}"/><br><br>
+            <input type="text" id="name" name="name" value="${event.name}"/><br><br>
             <label for="name">Describe:</label>
-            <input type="text" id="describe" name="Describe" cut value="${event.describe}"/><br><br>
-            <%--<label for="name">Date:</label>--%>
-            <%--<input type="datetime-local" id="date" name="Date" cut value= "${event.date}"/><br><br>--%>
+            <input type="text" id="describe" name="describe" value="${event.describe}"/><br><br>
+            <label for="name">Date:</label>
+            <input type="datetime-local" id="date" name="date" value="${event.date}"/><br><br>
             <label for="name">Place:</label>
-            <input type="text" id="place" name="Place" cut value="${event.place}"/><br><br>
-            <%--<label for="name">Topic:</label>--%>
-            <%--<input type="text" id="topic" name="Topic" value= "${event.topics}"/><br><br>--%>
-            <button type="submit" class="registerbtn">Register</button>
+            <input type="text" id="place" name="place" value="${event.place}"/><br><br>
+            <label>Topics:</label>
+            <br>
+<%--            <input type="text" id="topic" name="topic" value= "${event.topics}"/><br><br>--%>
+            <c:forEach items="${event.topics}" var="topic">
+                <input type="text" name="topic" value="${topic.name}"/><br><br>
+            </c:forEach>
+            <input type="submit" class="registerbtn" value="Send">
         </div>
 
 </form>

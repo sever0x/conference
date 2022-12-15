@@ -22,7 +22,8 @@ public class TopicService {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Topic topic = new Topic(resultSet.getString("name"));
+                Topic topic = new Topic(resultSet.getInt("id"),
+                        resultSet.getString("name"));
                 topics.add(topic);
             }
 
