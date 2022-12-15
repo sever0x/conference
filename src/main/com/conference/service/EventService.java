@@ -3,6 +3,7 @@ package com.conference.service;
 import com.conference.config.ConnectionConfig;
 import com.conference.model.Event;
 import com.conference.model.Topic;
+import com.conference.model.User;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -68,6 +69,19 @@ public class EventService {
         }
         return listEvent;
     }
+    public void updateEvent(Event event) {
+        try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLEvent.UPDATE.QUERY)) {
+            statement.setString(1, event.getName());
+            statement.setString(2, event.getDescribe());
+//            statement.setString(3, String.valueOf(event.getDate()));
+            statement.setString(3, event.getPlace());
+            statement.setInt(4, 1);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
 
 
 }

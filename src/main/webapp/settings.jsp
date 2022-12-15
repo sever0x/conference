@@ -28,7 +28,7 @@
 </div>
 </form>
 </body>
-</body>
+<%--</body>--%>
 </html>
 
 <!-- <form action="<%= request.getContextPath() %>/settings" method="post">

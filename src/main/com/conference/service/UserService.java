@@ -31,7 +31,8 @@ public class UserService implements UserDAO {
     public void updateUser(User user) {
         try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLUser.UPDATE.QUERY)) {
             statement.setString(1, user.getLogin());
-            statement.setInt(2, user.getId());
+            statement.setString(2, user.getEmail());
+            statement.setInt(3, user.getId());
             statement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();

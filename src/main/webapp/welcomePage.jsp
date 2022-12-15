@@ -45,6 +45,9 @@
             <form action="<%= request.getContextPath() %>/logout">
                 <button>Log Out</button>
             </form>
+            <form action="<%= request.getContextPath() %>/edit">
+                <button>Edit Event</button>
+            </form>
         </div>
     </div>
 
@@ -61,8 +64,11 @@
                     <p>${event.place}</p>
                     <br>
                     <p>Topics:</p>
+
                     <c:forEach items="${event.topics}" var="topic">
-                        <p>${topic.name}</p>
+
+                        <h2>${topic.name}</h2>
+
                     </c:forEach>
                 </div>
                 <div>

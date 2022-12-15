@@ -16,9 +16,9 @@ public class Event {
 
     private String describe;
 
-    private Timestamp date;
+        private Timestamp date =new Timestamp(System.currentTimeMillis());
 
-    private String place;
+    private String place = "Kiev";
 
     private List<Topic> topics;
 

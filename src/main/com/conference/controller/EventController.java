@@ -33,7 +33,7 @@ public class EventController extends HttpServlet {
         Event event = new Event();
         event.setName(eventName);
         event.setDescribe(eventDescribe);
-        event.setPlace("Pavlohrad");
+        event.setPlace("Kiev");
 
         List<Topic> topics = new ArrayList<>();
 

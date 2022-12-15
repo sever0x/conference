@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -36,6 +37,7 @@ public class LoginController extends HttpServlet {
                 req.getSession().setAttribute("password", password);
                 req.getSession().setAttribute("login", login);
                 req.getSession().setAttribute("role", Role.USER);
+
 
 //                req.getRequestDispatcher("welcomePage.jsp").forward(req, resp);
                 resp.sendRedirect(req.getContextPath() + "/welcome");
