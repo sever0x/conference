@@ -18,7 +18,7 @@
             </tr>
             <jsp:useBean id="events" scope="request" type="java.util.List"/>
             <c:forEach items="${events}" var="event">
-                <tr>
+                <tr id="${event.id}">
                     <td>${event.id}</td>
                     <td>${event.name}</td>
                     <td>${event.describe}</td>

@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css/welcomePage.css">
+    <link rel="stylesheet" href="../css/welcome.css">
 
     <title>Account</title>
 </head>
@@ -38,8 +38,15 @@
             <p class="phone">000-000-00-00</p>
         </div>
         <div class="edit-buttons">
-            <button>Edit</button>
-            <button>Log Out</button>
+            <form action="<%= request.getContextPath() %>/settings">
+                <button>Edit</button>
+            </form>
+            <form action="<%= request.getContextPath() %>/logout">
+                <button>Log Out</button>
+            </form>
+            <form action="<%= request.getContextPath() %>/edit">
+                <button>Edit Event</button>
+            </form>
         </div>
     </div> 
 
@@ -64,7 +71,7 @@
         <c:forEach items="${events}" var="event">
 
         <div class="container-event">
-            <div class="container-article">
+            <div class="container-article" id="${event.id}">
                 <div class="conference-header">
                     <h2>${event.name}</h2>
                 </div>
@@ -102,10 +109,48 @@
 </div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-<script type="text/javascript" src="../js/cssanimation-gsap.js"></script>
-<script type="module" src="../js/lang.js"></script>
-<script type="module" src="../js/changeLang.js"></script>
+<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>--%>
+<%--<script type="text/javascript" src="../js/cssanimation-gsap.js"></script>--%>
+<%--<script type="module" src="../js/lang.js"></script>--%>
+<%--<script type="module" src="../js/changeLang.js"></script>--%>
+
+<script>
+
+    window.addEventListener('load', function() {
+        const event_parent = document.querySelectorAll('.container-event .container-article');
+        const container_articled = document.getElementsByClassName('.container-event >.container-article');
+        // console.log(container_articled)
+        // const paginatParent = document.querySelectorAll('.side-navigation .side-navigation__item');
+
+        // parent.addEventListener('change', rebuildPagination)
+
+        const paginat_parent = document.getElementById('myNode');
+
+        for (let i = 1; i <= event_parent.length; i++) {
+            var a_link = document.createElement("a");
+            var span = document.createElement("span");
+            var li = document.createElement("li");
+
+            span.setAttribute("class", "test");
+            txt = document.createTextNode(i);
+            span.appendChild(txt);
+
+            a_link.setAttribute("class", "side-navigation__link")
+            a_link.setAttribute("href", "#" + i);
+            a_link.appendChild(span);
+
+
+            li.setAttribute("class", "side-navigation__item"); // added line
+            li.appendChild(a_link);
+            paginat_parent.appendChild(li);
+
+        }
+    });
+
+
+
+</script>
+
 </body>
 
 

@@ -45,13 +45,13 @@ body {
     gap: 20px;
 
 
-     /* glassmorphism */
-     background: rgba( 255, 255, 255, 0.1 );
-     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-     /* backdrop-filter: blur( 10px );
-     -webkit-backdrop-filter: blur( 10px ); */
-     border-radius: 10px;
-     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /* glassmorphism */
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    /* backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px ); */
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .container-center {
@@ -64,25 +64,25 @@ body {
     overflow:auto;
     scroll-behavior: smooth;
 
-     /* glassmorphism */
-     background: rgba( 255, 255, 255, 0.1 );
-     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-     /* backdrop-filter: blur( 10px );
-     -webkit-backdrop-filter: blur( 10px ); */
-     border-radius: 10px;
-     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /* glassmorphism */
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    /* backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px ); */
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .container-article {
     margin: 5px 3px 5px 3px;
-    width: 85%;
+    width: 400px;
     min-height: 400px;
     display: flex;
     flex-direction: column;
 
     overflow-x:hidden;
-    
-    
+
+
     /* glassmorphism */
     background: rgba( 255, 255, 255, 0.1 );
     /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
@@ -145,13 +145,13 @@ span:hover {
     width: 25vw;
     height: 70vh;
 
-     /* glassmorphism */
-     background: rgba( 255, 255, 255, 0.1 );
-     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-     /* backdrop-filter: blur( 10px );
-     -webkit-backdrop-filter: blur( 10px ); */
-     border-radius: 10px;
-     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /* glassmorphism */
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    /* backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px ); */
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .conference-header {
@@ -160,7 +160,7 @@ span:hover {
 }
 .conference-main {
     margin: 20px 10px 10px 20px;
-    
+
 
 }
 .conference-footer {
@@ -171,14 +171,14 @@ span:hover {
     margin-right: 5px;
     margin-bottom: 5px;
     gap: 4.5px;
-    
+
 
 }
 
 .conference-footer button {
     width: 100px;
     height: 40px;
-    
+
     color: #ddd;
     background: rgba( 255, 255, 255, 0.1 );
     border: none;
@@ -210,14 +210,14 @@ span:hover {
 .container-left .edit-buttons button {
     width: 100px;
     height: 40px;
-    
+
     color: #ddd;
     background: rgba( 255, 255, 255, 0.1 );
     border: none;
     border-radius: 10px;
 }
 
-.container-left .edit-buttons button:hover{ 
+.container-left .edit-buttons button:hover{
     color: #23a6d5;
     box-shadow: 1px 1px 0 0 ;
     transition: 0.7s
@@ -232,14 +232,14 @@ span:hover {
 .container-right button {
     width: 100px;
     height: 40px;
-    
+
     color: #ddd;
     background: rgba( 255, 255, 255, 0.1 );
     border: none;
     border-radius: 10px;
 }
 
-.container-right button:hover { 
+.container-right button:hover {
     color: #23a6d5;
     box-shadow: 1px 1px 0 0 ;
     transition: 0.7s
