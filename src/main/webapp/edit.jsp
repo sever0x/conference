@@ -1,14 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <html>
-    <head>
-        <link rel="stylesheet" href="../css/editEvent.css">
-        <title>All events</title>
-    </head>
+<head>
+    <link rel="stylesheet" href="../css/editEvent.css">
+    <title>All events</title>
+</head>
 <body>
-<div>
-    <h3>All events</h3>
-</div>
     <div class="container">
         <table>
             <tr>
@@ -28,8 +25,8 @@
                     <td>${event.date}</td>
                     <td>${event.place}</td>
                     <td>
-                        <form action="/edit/${event.id}" method="get" >
-                            <input type="submit" value="Edit" >
+                        <form action="/edit/${event.id}" method="get">
+                            <input type="submit" value="Edit">
                         </form>
                     </td>
                 </tr>
