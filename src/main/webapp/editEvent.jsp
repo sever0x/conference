@@ -8,14 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="../css/style.css">
     <title>Title</title>
 </head>
 <%--<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>--%>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <body>
 <jsp:useBean id="event" scope="request" type="com.conference.model.Event"/>
-<form action="<%= request.getContextPath() %>/edit/${event.id}" method="post">
 
+<form action="<%= request.getContextPath() %>/edit/${event.id}" method="post">
+    <div class="container">
         <div>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" value="${event.name}"/><br><br>
@@ -33,7 +35,8 @@
             </c:forEach>
             <input type="submit" class="registerbtn" value="Send">
         </div>
-
+    </div>
 </form>
+
 </body>
 </html>
