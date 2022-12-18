@@ -28,7 +28,6 @@
     </select>  -->
 
     <div class="container-left">
-        <!-- <div id="word" class="lng-text cssanimation hu__hu__">Oops. It will be a digital paper</div> -->
         <div class="logo-user">
             <div class="photo-user">
                 <img src="" alt="">
@@ -39,21 +38,32 @@
             <p class="phone">000-000-00-00</p>
         </div>
         <div class="edit-buttons">
-            <form action="<%= request.getContextPath() %>/settings">
-                <button>Edit</button>
-            </form>
-            <form action="<%= request.getContextPath() %>/logout">
-                <button>Log Out</button>
-            </form>
-            <form action="<%= request.getContextPath() %>/edit">
-                <button>Edit Event</button>
-            </form>
+            <button>Edit</button>
+            <button>Log Out</button>
         </div>
-    </div>
+    </div> 
 
     <div class="container-center scroll">
+
+        <div class="side-navigation">
+            <ul id="myNode" class="side-navigation__content">
+                <!-- <li class="side-navigation__item">
+                    <a class="side-navigation__link">
+                        <span class="test">1</span>
+                    </a>
+                </li>
+                <li class="side-navigation__item">
+                    <a class="side-navigation__link"><span class="test">2</span></a>
+                </li>
+                <li class="side-navigation__item">
+                    <a class="side-navigation__link"><span class="test">3</span></a>
+                </li> -->
+            </ul>
+        </div>
+        
         <c:forEach items="${events}" var="event">
 
+        <div class="container-event">
             <div class="container-article">
                 <div class="conference-header">
                     <h2>${event.name}</h2>
@@ -79,7 +89,9 @@
                     <button>Join</button>
                 </div>
             </div>
+        </div>
         </c:forEach>
+
     </div>
 
     <div class="container-right">
