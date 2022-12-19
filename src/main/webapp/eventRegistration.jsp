@@ -18,18 +18,18 @@
 
         <div>
             <p>Event name</p>
-            <input name="name" type="text">
+            <input name="name" type="text" required>
 
             <div>
                 <p>Event Describe</p>
-                <textarea name="descr" cols="50" rows="10"></textarea>
+                <textarea name="descr" cols="50" rows="10" required></textarea>
             </div>
 
             <p>Topic</p>
             <div class="topic-container">
 
                 <div id="topic-main">
-                    <input name="topic" type="text">
+                    <input name="topic" type="text" required>
                 </div>
 
 

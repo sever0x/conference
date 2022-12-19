@@ -1,6 +1,7 @@
 package com.conference.controller;
 
 import com.conference.model.Event;
+import com.conference.model.Topic;
 import com.conference.service.EventService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,6 +10,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 @WebServlet("/edit/*")
 public class EventEditController extends HttpServlet {
@@ -26,10 +29,23 @@ public class EventEditController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Event event = new Event();
-        event.setId(Integer.parseInt(req.getPathInfo().substring(1)));
+        String[] topics = req.getParameterValues("topic");
+
+        Event event = eventService.getEvent(Integer.parseInt(req.getPathInfo().substring(1)));
         event.setName(req.getParameter("name"));
         event.setDescribe(req.getParameter("describe"));
+
+        List<Topic> topicList = event.getTopics();
+
+        for (int i = 0; i < topics.length; i++) {
+            Topic topic = topicList.get(i);
+            topic.setName(topics[i]);
+
+            topicList.set(i, topic);
+        }
+
+        event.setTopics(topicList);
+
 //       event.setDate(Timestamp.valueOf((String) req.getAttribute("date")));
         event.setPlace(req.getParameter("place"));
         eventService.updateEvent(event);

@@ -3,7 +3,8 @@ package com.conference.service;
 enum SQLTopic {
     SELECT_ALL("select * from event"),
     GET_BY_ID("select * from event where id=?"),
-    INSERT("insert into topic (name, event_id) values ((?), (?))");
+    INSERT("insert into topic (name, event_id) values ((?), (?))"),
+    UPDATE("update topic set name=? where id=?");
 
     final String QUERY;
 

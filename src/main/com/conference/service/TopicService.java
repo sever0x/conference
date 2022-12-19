@@ -47,4 +47,18 @@ public class TopicService {
             }
         }
     }
+
+    public void updateTopics(List<Topic> topics) {
+        for (Topic topic : topics) {
+            try (PreparedStatement preparedStatement = ConnectionConfig.connection
+                    .prepareStatement(SQLTopic.UPDATE.QUERY)) {
+                preparedStatement.setString(1, topic.getName());
+                preparedStatement.setInt(2, topic.getId());
+
+                preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }

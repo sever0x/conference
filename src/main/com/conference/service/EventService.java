@@ -78,6 +78,7 @@ public class EventService {
 //            statement.setString(3, String.valueOf(event.getDate()));
             statement.setString(3, event.getPlace());
             statement.setInt(4, event.getId());
+            topicService.updateTopics(event.getTopics());
 
             statement.executeUpdate();
         } catch (SQLException e) {
