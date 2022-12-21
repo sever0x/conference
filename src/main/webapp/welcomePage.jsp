@@ -44,6 +44,11 @@
             <form action="<%= request.getContextPath() %>/logout">
                 <button>Log Out</button>
             </form>
+            <c:if test="${sessionScope.role == 'MODERATOR'}">
+                <form action="<%= request.getContextPath() %>/edit">
+                    <button>Edit Event</button>
+                </form>
+            </c:if>
             <form action="<%= request.getContextPath() %>/edit">
                 <button>Edit Event</button>
             </form>
@@ -92,7 +97,9 @@
 
                 </div>
                 <div class="conference-footer">
+                    <form action="<%= request.getContextPath() %>/eventRegistration">
                     <button>Speaker</button>
+                    </form>
                     <button>Join</button>
                 </div>
             </div>

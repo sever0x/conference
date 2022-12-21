@@ -17,6 +17,8 @@
     <div class="container">
         <h1>The input elements</h1>
     <div>
+<%--        <label for="role">Role:</label>--%>
+        <p> ${user.role}</p><br><br>
         <label for="login">Login:</label>
         <input type="text" id="login" name="login" value="${user.login}"><br><br>
         <label for="email">Email :</label>
