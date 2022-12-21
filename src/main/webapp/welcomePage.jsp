@@ -49,9 +49,6 @@
                     <button>Edit Event</button>
                 </form>
             </c:if>
-            <form action="<%= request.getContextPath() %>/edit">
-                <button>Edit Event</button>
-            </form>
         </div>
     </div> 
 
