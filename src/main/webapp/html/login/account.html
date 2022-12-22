@@ -6,20 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/src/main/webapp/css/xui.css">
+    <link rel="stylesheet" href="/conference/src/main/webapp/css/welcome.css">
 
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"   integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="   crossorigin="anonymous"></script>
 
     <title>Account</title>
+
+    <style>
+        .change-lang {
+            color: #ddd;
+            position: absolute;
+            top: 10px;
+            background: none;
+            appearance: none;
+            border: none;
+        }
+
+        .change-lang:focus {
+            outline: none;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <!-- <select class="change-lang">
+        <select class="change-lang">
             <option value="ua">UA</option>
-            <option value="en">EN</option>
-        </select>  -->
+            <option value="en">ENG</option>
+        </select> 
 
         <div class="container-left">
             <div class="logo-user">
@@ -32,8 +47,9 @@
                 <p class="phone">000-000-00-00</p>
             </div>
             <div class="edit-buttons">
-                <button>Edit</button>
-                <button>Log Out</button>
+                <button id="btn-edit">Edit</button>
+                <button id="btn-logout">Log Out</button>
+                <!-- <button id="btn-edit-event">Edit Event</button> -->
             </div>
         </div> 
 
@@ -68,8 +84,8 @@
                             eum omnis deleniti incidunt magnam id alias, culpa maiores dolores facilis nobis eos ipsa explicabo dolorum doloremque. Omnis!
                         </div>
                         <div class="conference-footer">
-                            <button>Speaker</button>
-                            <button>Join</button>
+                            <button id="btn-speaker">Speaker</button>
+                            <button id="btn-join">Join</button>
                         </div>
                     </div>
                     <div class="container-article" id="1">
@@ -120,7 +136,7 @@
 
     </div>
     <div class="container-right">
-        <button>Add event</button>
+        <button id="btn-add-event">Add event</button>
     </div>
     </div>
 
@@ -128,8 +144,7 @@
 
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script> 
 <script type="text/javascript" src="/src/main/webapp/js/cssanimation-gsap.js"></script> -->
-<!-- <script type="module" src="/src/main/webapp/js/lang.js"></script> -->
-<!-- <script type="module" src="/src/main/webapp/js/changeLang.js"></script> -->
+
 
 <script>
 
@@ -168,6 +183,9 @@ window.addEventListener('load', function() {
 
 </script>
 
+
+<script type="module" src="/conference/src/main/webapp/js/lang.js"></script>
+<script type="module" src="/conference/src/main/webapp/js/changeLang.js"></script>
 </body>
 
 

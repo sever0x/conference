@@ -25,8 +25,16 @@ import {langArr} from './lang.js';
                 location.reload();
             }
             select.value = hash
-            document.getElementById('word').innerHTML = langArr['text'][hash]
+            document.getElementById('btn-edit').innerHTML = langArr['btn-edit'][hash]
+            document.getElementById('btn-logout').innerHTML = langArr['btn-logout'][hash]
 
+            if (document.getElementById('btn-edit-event')) {
+                document.getElementById('btn-edit-event').innerHTML = langArr['btn-edit-event'][hash]
+            }
+
+            document.getElementById('btn-speaker').innerHTML = langArr['btn-speaker'][hash]
+            document.getElementById('btn-join').innerHTML = langArr['btn-join'][hash]
+            document.getElementById('btn-add-event').innerHTML = langArr['btn-add-event'][hash]
         }
 
         changeLanguage()
