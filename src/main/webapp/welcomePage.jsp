@@ -48,9 +48,12 @@
                 <form action="<%= request.getContextPath() %>/edit">
                     <button>Edit Event</button>
                 </form>
+                <form action="<%= request.getContextPath() %>/request">
+                    <button>Request List</button>
+                </form>
             </c:if>
         </div>
-    </div> 
+    </div>
 
     <div class="container-center scroll">
 
@@ -69,38 +72,38 @@
                 </li> -->
             </ul>
         </div>
-        
+
         <c:forEach items="${events}" var="event">
 
-        <div class="container-event">
-            <div class="container-article" id="${event.id}">
-                <div class="conference-header">
-                    <h2>${event.name}</h2>
-                </div>
-                <div class="conference-main">
-                    <p>${event.describe}</p>
-                    <p>${event.date}</p>
-                    <p>${event.place}</p>
-                    <br>
-                    <p>Topics:</p>
+            <div class="container-event">
+                <div class="container-article" id="${event.id}">
+                    <div class="conference-header">
+                        <h2>${event.name}</h2>
+                    </div>
+                    <div class="conference-main">
+                        <p>${event.describe}</p>
+                        <p>${event.date}</p>
+                        <p>${event.place}</p>
+                        <br>
+                        <p>Topics:</p>
 
-                    <c:forEach items="${event.topics}" var="topic">
+                        <c:forEach items="${event.topics}" var="topic">
 
-                        <h2>${topic.name}</h2>
+                            <h2>${topic.name}</h2>
 
-                    </c:forEach>
-                </div>
-                <div>
+                        </c:forEach>
+                    </div>
+                    <div>
 
-                </div>
-                <div class="conference-footer">
-                    <form action="<%= request.getContextPath() %>/eventRegistration">
-                    <button>Speaker</button>
-                    </form>
-                    <button>Join</button>
+                    </div>
+                    <div class="conference-footer">
+                        <form action="<%= request.getContextPath() %>/permission">
+                            <button>Join as Speaker</button>
+                        </form>
+                        <button>Join</button>
+                    </div>
                 </div>
             </div>
-        </div>
         </c:forEach>
 
     </div>

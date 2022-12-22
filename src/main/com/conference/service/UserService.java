@@ -99,7 +99,7 @@ public class UserService implements UserDAO {
         List<User> users = new ArrayList<>();
 
         try (Statement statement = ConnectionConfig.connection.createStatement();
-             
+
              ResultSet resultSet = statement.executeQuery(SQLUser.SELECT_ALL.QUERY)) {
             while (resultSet.next()) {
                 User user = new User();
@@ -116,14 +116,26 @@ public class UserService implements UserDAO {
 
         return users;
     }
-}
+    public void addUserPermission(User user){
+        try (PreparedStatement statement = ConnectionConfig.connection.
+                prepareStatement(SQLUser.UPDATE_PERMISSION.QUERY)) {
+            statement.setInt(1, 1);
+            statement.setString(2, user.getLogin());
+            statement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+  }
 
 enum SQLUser {
     SELECT_ALL("select * from user"),
     GET_BY_ID("select * from user where id=?"),
     GET_BY_LOGIN("select * from user where login=?"),
     UPDATE("update user set login=?, email=? where id=?"),
-    INSERT("insert into user (login, password, email) values ((?), (?), (?))");
+    INSERT("insert into user (login, password, email) values ((?), (?), (?))"),
+    UPDATE_PERMISSION("update user set permission=? where login=?");
+
 
     final String QUERY;
 

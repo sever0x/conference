@@ -18,7 +18,9 @@ public class User {
 
     private String email;
 
-    private Role role = Role.USER;
+    private Role role ;
+
+    private int permission ;
 
     public User(String login, String password, String email) {
         this.login = login;
