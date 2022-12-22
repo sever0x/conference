@@ -4,7 +4,7 @@ export const langArr = {
         "en": "Log Out"
     }, 
     "btn-edit": {
-        "ua": "Зломити себе",
+        "ua": "Чекнути",
         "en": "Edit"
     },
     "btn-edit-event": {
@@ -20,7 +20,7 @@ export const langArr = {
         "en": "Join"
     },
     "btn-add-event": {
-        "ua": "Запропонувати",
+        "ua": "Може?",
         "en": "Add event"
     }
 };
