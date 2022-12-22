@@ -27,7 +27,10 @@ import {langArr} from './lang.js';
             select.value = hash
             document.getElementById('btn-edit').innerHTML = langArr['btn-edit'][hash]
             document.getElementById('btn-logout').innerHTML = langArr['btn-logout'][hash]
-            document.getElementById('btn-edit-event').innerHTML = langArr['btn-edit-event'][hash]
+
+            if (document.getElementById('btn-edit-event')) {
+                document.getElementById('btn-edit-event').innerHTML = langArr['btn-edit-event'][hash]
+            }
 
             document.getElementById('btn-speaker').innerHTML = langArr['btn-speaker'][hash]
             document.getElementById('btn-join').innerHTML = langArr['btn-join'][hash]
