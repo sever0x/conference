@@ -22,10 +22,10 @@
 
 <body>
 <div class="container">
-    <!-- <select class="change-lang">
+    <select  class="change-lang">
         <option value="ua">UA</option>
         <option value="en">EN</option>
-    </select>  -->
+    </select> 
 
     <div class="container-left">
         <div class="logo-user">
@@ -39,14 +39,14 @@
         </div>
         <div class="edit-buttons">
             <form action="<%= request.getContextPath() %>/settings">
-                <button>Edit</button>
+                <button id="btn-edit">Edit</button>
             </form>
             <form action="<%= request.getContextPath() %>/logout">
-                <button>Log Out</button>
+                <button id="btn-logout">Log Out</button>
             </form>
             <c:if test="${sessionScope.role == 'MODERATOR'}">
                 <form action="<%= request.getContextPath() %>/edit">
-                    <button>Edit Event</button>
+                    <button id="btn-edit-event">Edit Event</button>
                 </form>
             </c:if>
         </div>
@@ -95,9 +95,9 @@
                 </div>
                 <div class="conference-footer">
                     <form action="<%= request.getContextPath() %>/eventRegistration">
-                    <button>Speaker</button>
+                    <button id="btn-speaker">Speaker</button>
                     </form>
-                    <button>Join</button>
+                    <button id="btn-join">Join</button>
                 </div>
             </div>
         </div>
@@ -107,19 +107,12 @@
 
     <div class="container-right">
         <form action="<%= request.getContextPath() %>/eventRegistration">
-            <button>Add event</button>
+            <button id="btn-add-event">Add event</button>
         </form>
     </div>
 </div>
 
-
-<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>--%>
-<%--<script type="text/javascript" src="../js/cssanimation-gsap.js"></script>--%>
-<%--<script type="module" src="../js/lang.js"></script>--%>
-<%--<script type="module" src="../js/changeLang.js"></script>--%>
-
 <script>
-
     window.addEventListener('load', function() {
         const event_parent = document.querySelectorAll('.container-event .container-article');
         const container_articled = document.getElementsByClassName('.container-event >.container-article');
@@ -150,11 +143,11 @@
 
         }
     });
-
-
-
 </script>
 
+
+<script type="module" src="../js/lang.js"></script>
+<script type="module" src="../js/changeLang.js"></script>
 </body>
 
 
