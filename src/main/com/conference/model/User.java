@@ -1,9 +1,14 @@
 package com.conference.model;
 
+import com.conference.service.TopicService;
+import jakarta.servlet.http.HttpSession;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,15 +23,43 @@ public class User {
 
     private String email;
 
-    private Role role ;
+    private Role role;
 
-    private int permission ;
+    private int permission;
 
-    public User(String login, String password, String email) {
-        this.login = login;
-        this.password = password;
-        this.email = email;
+    private List<Topic> topics = new ArrayList<>();
+
+    private Topic topic;
+
+    public List<Topic> addTopic(Topic topic) {
+        topics.add(topic);
+        return topics;
+
     }
 
+    public boolean userHasTopic(int id) {
+        boolean result = false;
+        TopicService topicService = new TopicService();
+        List<Integer> list = new ArrayList<>();
+        list = topicService.getListAllTopicsByUser(this);
+//        topics = topicService.getAllTopics(1);
+        System.out.println(list.toString());
+        int[] idTopic = new int[list.size()];
 
+
+        for (int i = 0; i < list.size(); i++) {
+            int topic1 = list.get(i);
+            idTopic[i] = topic1;
+
+        }
+
+
+        for (int i = 0; i < idTopic.length; i++) {
+            if (idTopic[i] == id) {
+                return  true;
+            }
+
+        }
+        return false;
+    }
 }

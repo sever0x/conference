@@ -3,6 +3,7 @@ package com.conference.service;
 import com.conference.config.ConnectionConfig;
 import com.conference.dao.UserDAO;
 import com.conference.model.Role;
+import com.conference.model.Topic;
 import com.conference.model.User;
 
 import java.sql.PreparedStatement;
@@ -32,7 +33,8 @@ public class UserService implements UserDAO {
         try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLUser.UPDATE.QUERY)) {
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getEmail());
-            statement.setInt(3, user.getId());
+            statement.setString(3, String.valueOf(user.getRole()));
+            statement.setInt(4, user.getId());
             statement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
@@ -107,6 +109,9 @@ public class UserService implements UserDAO {
                 user.setId(resultSet.getInt("id"));
                 user.setLogin(resultSet.getString("login"));
                 user.setPassword(resultSet.getString("password"));
+                user.setRole(Role.valueOf(resultSet.getString("role")));
+                user.setEmail(resultSet.getString("email"));
+                user.setPermission(resultSet.getInt("permission"));
 
                 users.add(user);
             }
@@ -126,16 +131,56 @@ public class UserService implements UserDAO {
             e.printStackTrace();
         }
     }
-  }
+    public void changeUserPermission(User user){
+        try (PreparedStatement statement = ConnectionConfig.connection.
+                prepareStatement(SQLUser.CHANGE_USER_PERMISSION.QUERY)) {
+            statement.setInt(1, 0);
+            statement.setString(2, user.getLogin());
+            statement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void updateUserTopic(User user, Topic topic) {
+        try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLUser.INSERT_USER_TOPIC_LIST.QUERY)) {
+            statement.setInt(1,topic.getId());
+            statement.setInt(2, user.getId());
+
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public boolean getTopicById(Topic topic) {
+
+        try (PreparedStatement preparedStatement = ConnectionConfig.connection
+                .prepareStatement(SQLUser.GET_USER_BY_TOPIC_ID.QUERY)) {
+            preparedStatement.setInt(1, topic.getId());
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return true;
+    }
+}
 
 enum SQLUser {
     SELECT_ALL("select * from user"),
     GET_BY_ID("select * from user where id=?"),
     GET_BY_LOGIN("select * from user where login=?"),
-    UPDATE("update user set login=?, email=? where id=?"),
+    UPDATE("update user set login=?, email=?, role=? where id=?"),
     INSERT("insert into user (login, password, email) values ((?), (?), (?))"),
-    UPDATE_PERMISSION("update user set permission=? where login=?");
-
+    UPDATE_PERMISSION("update user set permission=? where login=?"),
+    CHANGE_USER_PERMISSION("update user set permission=? where login=?"),
+    INSERT_USER_TOPIC_LIST("insert into topic_has_user (topic_id, user_id) values ((?), (?))"),
+    GET_USER_BY_TOPIC_ID("select * from topic_has_user where topic_id=?");
 
     final String QUERY;
 

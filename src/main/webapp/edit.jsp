@@ -6,32 +6,32 @@
     <title>All events</title>
 </head>
 <body>
-    <div class="container">
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Describe</th>
-                <th>Date</th>
-                <th>Place</th>
-                <th>Action</th>
+<div class="container">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Describe</th>
+            <th>Date</th>
+            <th>Place</th>
+            <th>Action</th>
+        </tr>
+        <jsp:useBean id="events" scope="request" type="java.util.List"/>
+        <c:forEach items="${events}" var="event">
+            <tr id="${event.id}">
+                <td>${event.id}</td>
+                <td>${event.name}</td>
+                <td>${event.describe}</td>
+                <td>${event.date}</td>
+                <td>${event.place}</td>
+                <td>
+                    <form action="/edit/${event.id}" method="get">
+                        <input type="submit" value="Edit">
+                    </form>
+                </td>
             </tr>
-            <jsp:useBean id="events" scope="request" type="java.util.List"/>
-            <c:forEach items="${events}" var="event">
-                <tr id="${event.id}">
-                    <td>${event.id}</td>
-                    <td>${event.name}</td>
-                    <td>${event.describe}</td>
-                    <td>${event.date}</td>
-                    <td>${event.place}</td>
-                    <td>
-                        <form action="/edit/${event.id}" method="get">
-                            <input type="submit" value="Edit">
-                        </form>
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
-    </div>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>

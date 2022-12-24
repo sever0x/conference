@@ -41,9 +41,9 @@
                 <button type="button" id="topic-btn" class="topic-btn-add">+</button>
             </div>
             <%--            <input type="text" id="topic" name="topic" value= "${event.topics}"/><br><br>--%>
-<%--            <c:forEach items="${event.topics}" var="topic">--%>
-<%--                <input type="text" name="topic" value="${topic.name}"/><br><br>--%>
-<%--            </c:forEach>--%>
+            <%--            <c:forEach items="${event.topics}" var="topic">--%>
+            <%--                <input type="text" name="topic" value="${topic.name}"/><br><br>--%>
+            <%--            </c:forEach>--%>
             <input type="submit" class="registerbtn" value="Send">
         </div>
     </div>

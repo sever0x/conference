@@ -21,7 +21,7 @@ public class EventSettingsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        HttpSession httpSession = req.getSession();
-         Role role = Role.valueOf((String) req.getSession().getAttribute("role"));
+        Role role = Role.valueOf((String) req.getSession().getAttribute("role"));
 
         if (role.equals(Role.MODERATOR)) {
             List<Event> events = eventService.getAllEvent();

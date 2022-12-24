@@ -22,10 +22,10 @@
 
 <body>
 <div class="container">
-    <!-- <select class="change-lang">
+    <select  class="change-lang">
         <option value="ua">UA</option>
         <option value="en">EN</option>
-    </select>  -->
+    </select>
 
     <div class="container-left">
         <div class="logo-user">
@@ -39,14 +39,14 @@
         </div>
         <div class="edit-buttons">
             <form action="<%= request.getContextPath() %>/settings">
-                <button>Edit</button>
+                <button id="btn-edit">Edit</button>
             </form>
             <form action="<%= request.getContextPath() %>/logout">
-                <button>Log Out</button>
+                <button id="btn-logout">Log Out</button>
             </form>
             <c:if test="${sessionScope.role == 'MODERATOR'}">
                 <form action="<%= request.getContextPath() %>/edit">
-                    <button>Edit Event</button>
+                    <button id="btn-edit-event">Edit Event</button>
                 </form>
                 <form action="<%= request.getContextPath() %>/request">
                     <button>Request List</button>
@@ -90,6 +90,7 @@
                         <c:forEach items="${event.topics}" var="topic">
 
                             <h2>${topic.name}</h2>
+                            <h2>${topic.id}</h2>
 
                         </c:forEach>
                     </div>
@@ -97,10 +98,10 @@
 
                     </div>
                     <div class="conference-footer">
-                        <form action="<%= request.getContextPath() %>/permission">
-                            <button>Join as Speaker</button>
+                        <form action="<%= request.getContextPath() %>/permission/${event.id}">
+                            <button id="btn-speaker">Join as a Speaker</button>
                         </form>
-                        <button>Join</button>
+                        <button id="btn-join">Join</button>
                     </div>
                 </div>
             </div>
@@ -110,7 +111,7 @@
 
     <div class="container-right">
         <form action="<%= request.getContextPath() %>/eventRegistration">
-            <button>Add event</button>
+            <button id="btn-add-event">Add event</button>
         </form>
     </div>
 </div>
@@ -160,5 +161,6 @@
 
 </body>
 
-
+<script type="module" src="../js/lang.js"></script>
+<script type="module" src="../js/changeLang.js"></script>
 </html>

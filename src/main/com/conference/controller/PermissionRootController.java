@@ -1,6 +1,10 @@
 package com.conference.controller;
 
+import com.conference.model.Event;
+import com.conference.model.Topic;
 import com.conference.model.User;
+import com.conference.service.EventService;
+import com.conference.service.TopicService;
 import com.conference.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,16 +14,32 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet("/permission")
+@WebServlet("/permission/*")
 public class PermissionRootController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String login = (String) req.getSession().getAttribute("login");
-        System.out.println(login);
         UserService userService = new UserService();
+        TopicService topicService = new TopicService();
         User user = userService.getUserByLogin(login);
-        System.out.println(user);
+
         userService.addUserPermission(user);
+        List<Topic> topics = topicService.getAllTopicsByUser(user);
+        for (Topic topic : topics) {
+            System.out.println(topic);
+        }
+        EventService eventService=new EventService();
+        int eventId = Integer.parseInt(req.getPathInfo().substring(1));
+        Event event = eventService.getEvent(eventId);
+
+        req.setAttribute("event", event);
+        req.setAttribute("user", user);
+        req.getRequestDispatcher("/topicList.jsp").forward(req, resp);
+
+
+//        req.getRequestDispatcher("topicList").forward(req,resp);
     }
 }
