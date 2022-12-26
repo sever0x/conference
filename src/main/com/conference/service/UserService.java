@@ -36,7 +36,7 @@ public class UserService implements UserDAO {
             statement.setString(3, String.valueOf(user.getRole()));
             statement.setInt(4, user.getId());
             statement.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -93,7 +93,17 @@ public class UserService implements UserDAO {
 
     @Override
     public void deleteUser(User user) {
-
+        try (PreparedStatement statement1 = ConnectionConfig.connection.
+                prepareStatement(SQLUser. DELETE_TOPIC_FROM_TOPIC_HAS_USER.QUERY);
+             PreparedStatement  statement =ConnectionConfig.connection.
+                prepareStatement(SQLUser.DELETE_USER.QUERY)) {
+            statement1.setInt(1,user.getId());
+            statement1.executeUpdate();
+            statement.setInt(1, user.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -121,29 +131,32 @@ public class UserService implements UserDAO {
 
         return users;
     }
-    public void addUserPermission(User user){
+
+    public void addUserPermission(User user) {
         try (PreparedStatement statement = ConnectionConfig.connection.
                 prepareStatement(SQLUser.UPDATE_PERMISSION.QUERY)) {
             statement.setInt(1, 1);
             statement.setString(2, user.getLogin());
             statement.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public void changeUserPermission(User user){
+
+    public void changeUserPermission(User user) {
         try (PreparedStatement statement = ConnectionConfig.connection.
                 prepareStatement(SQLUser.CHANGE_USER_PERMISSION.QUERY)) {
             statement.setInt(1, 0);
             statement.setString(2, user.getLogin());
             statement.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     public void updateUserTopic(User user, Topic topic) {
         try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLUser.INSERT_USER_TOPIC_LIST.QUERY)) {
-            statement.setInt(1,topic.getId());
+            statement.setInt(1, topic.getId());
             statement.setInt(2, user.getId());
 
 
@@ -153,6 +166,7 @@ public class UserService implements UserDAO {
         }
 
     }
+
     public boolean getTopicById(Topic topic) {
 
         try (PreparedStatement preparedStatement = ConnectionConfig.connection
@@ -160,7 +174,6 @@ public class UserService implements UserDAO {
             preparedStatement.setInt(1, topic.getId());
 
             ResultSet resultSet = preparedStatement.executeQuery();
-
 
 
         } catch (SQLException e) {
@@ -180,7 +193,10 @@ enum SQLUser {
     UPDATE_PERMISSION("update user set permission=? where login=?"),
     CHANGE_USER_PERMISSION("update user set permission=? where login=?"),
     INSERT_USER_TOPIC_LIST("insert into topic_has_user (topic_id, user_id) values ((?), (?))"),
-    GET_USER_BY_TOPIC_ID("select * from topic_has_user where topic_id=?");
+    GET_USER_BY_TOPIC_ID("select * from topic_has_user where topic_id=?"),
+    DELETE_USER("delete from user where id=?"),
+    DELETE_TOPIC_FROM_TOPIC_HAS_USER("delete from topic_has_user where user_id=?");
+
 
     final String QUERY;
 

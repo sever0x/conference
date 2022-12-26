@@ -34,6 +34,7 @@ public class TopicService {
 
 
     public List<Topic> getAllTopics(int id) {
+
         List<Topic> topics = new ArrayList<>();
 
         try (PreparedStatement preparedStatement = ConnectionConfig.connection
@@ -66,8 +67,8 @@ public class TopicService {
 
             while (resultSet.next()) {
 
-                Topic topic = new Topic(resultSet.getInt("id"),
-                        resultSet.getString("name"));
+                Topic topic = this.getTopicById(resultSet.getInt("topic_id"));
+
                 topics.add(topic);
             }
 

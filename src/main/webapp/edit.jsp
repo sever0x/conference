@@ -7,6 +7,7 @@
 </head>
 <body>
 <div class="container">
+
     <table>
         <tr>
             <th>ID</th>
@@ -32,6 +33,10 @@
             </tr>
         </c:forEach>
     </table>
+    <form>
+        <input type = "button" value = "Back" onclick="history.back()">
+    </form>
 </div>
+
 </body>
 </html>

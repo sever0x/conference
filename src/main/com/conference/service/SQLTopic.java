@@ -7,6 +7,7 @@ enum SQLTopic {
     INSERT("insert into topic (name, event_id) values ((?), (?))"),
     UPDATE("update topic set name=? where id=?");
 
+
     final String QUERY;
 
     SQLTopic(String QUERY) {

@@ -28,6 +28,9 @@ public class Topic {
         this.id = id;
         this.name = name;
     }
+    public Topic(int id) {
+        this.id = id;
+    }
     public Topic(){};
 
 

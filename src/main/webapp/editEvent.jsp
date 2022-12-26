@@ -47,7 +47,11 @@
             <input type="submit" class="registerbtn" value="Send">
         </div>
     </div>
+    <form>
+        <input type = "button" value = "Back" onclick="history.back()">
+    </form>
 </form>
+
 
 <script src="../js/topic.js"></script>
 

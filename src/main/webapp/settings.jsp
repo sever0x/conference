@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
 <form action="<%= request.getContextPath() %>/settings" method="post">
 
     <div class="container">
@@ -28,6 +29,9 @@
             <button type="submit" class="registerbtn"value="Submit">Submit</button>
         </div>
     </div>
+    <form>
+        <input type = "button" value = "Back" onclick="history.back()">
+    </form>
 </form>
 </body>
 <%--</body>--%>

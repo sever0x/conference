@@ -14,6 +14,7 @@
 
 <body>
 <div class="container">
+
     <form action="/eventRegistration" method="post">
 
         <div>
@@ -41,6 +42,9 @@
                 <button type="submit" class="registerbtn">Submit</button>
             </div>
         </div>
+        <form>
+            <input type = "button" value = "Back" onclick="history.back()">
+        </form>
     </form>
 
 </div>

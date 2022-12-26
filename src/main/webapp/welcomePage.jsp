@@ -22,7 +22,7 @@
 
 <body>
 <div class="container">
-    <select  class="change-lang">
+    <select class="change-lang">
         <option value="ua">UA</option>
         <option value="en">EN</option>
     </select>
@@ -59,17 +59,7 @@
 
         <div class="side-navigation">
             <ul id="myNode" class="side-navigation__content">
-                <!-- <li class="side-navigation__item">
-                    <a class="side-navigation__link">
-                        <span class="test">1</span>
-                    </a>
-                </li>
-                <li class="side-navigation__item">
-                    <a class="side-navigation__link"><span class="test">2</span></a>
-                </li>
-                <li class="side-navigation__item">
-                    <a class="side-navigation__link"><span class="test">3</span></a>
-                </li> -->
+
             </ul>
         </div>
 
@@ -97,10 +87,15 @@
                     <div>
 
                     </div>
+
                     <div class="conference-footer">
-                        <form action="<%= request.getContextPath() %>/permission/${event.id}">
-                            <button id="btn-speaker">Join as a Speaker</button>
-                        </form>
+                        <c:if test="${sessionScope.role == 'SPEAKER'}">
+                            <form action="<%= request.getContextPath() %>/permission/${event.id}">
+
+                                <button id="btn-speaker">Join as a Speaker</button>
+
+                            </form>
+                        </c:if>
                         <button id="btn-join">Join</button>
                     </div>
                 </div>
@@ -110,9 +105,22 @@
     </div>
 
     <div class="container-right">
-        <form action="<%= request.getContextPath() %>/eventRegistration">
-            <button id="btn-add-event">Add event</button>
-        </form>
+        <%--        <c:if test="${sessionScope.role == 'MODERATOR'}">--%>
+        <c:if test="${sessionScope.role == 'MODERATOR'}">
+            <form action="<%= request.getContextPath() %>/eventRegistration">
+                <button>Add event</button>
+            </form>
+        </c:if>
+        <c:if test="${sessionScope.role == 'SPEAKER'}">
+            <form action="<%= request.getContextPath() %>/showSpeakerTopic/${user.id}">
+                <button>Show my topic</button>
+            </form>
+        </c:if>
+        <c:if test="${sessionScope.role == 'USER'}">
+            <form action="<%= request.getContextPath() %>/eventRegistration">
+                <button>Show my Event</button>
+            </form>
+        </c:if>
     </div>
 </div>
 
@@ -124,7 +132,7 @@
 
 <script>
 
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
         const event_parent = document.querySelectorAll('.container-event .container-article');
         const container_articled = document.getElementsByClassName('.container-event >.container-article');
         // console.log(container_articled)
@@ -154,7 +162,6 @@
 
         }
     });
-
 
 
 </script>

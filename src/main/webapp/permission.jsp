@@ -12,6 +12,7 @@
     <title>All events</title>
 </head>
 <body>
+
 <div class="container">
     <span>REQUEST</span>
     <table>
@@ -55,24 +56,29 @@
 <%--        <jsp:useBean id="list2" scope="request" type="java.util.List"/>--%>
         <c:forEach items="${list2}" var="user">
 <%--            <c:if test="${user.role=='USER'&& user.permission ==1}">--%>
-
+            <c:if test="${user.role!='MODERATOR'}">
                 <td>${user.id}</td>
                 <td>${user.login}</td>
                 <td>${user.role}</td>
                 <td>${user.permission}</td>
 
                 <td>
-                    <form action="/showSpeakerTopic/${user.id}" method="get">
-                        <input type="submit" value="Show speaker topic">
+
+                    <form action="/deleteUser/${user.id}" method="get">
+                        <input type="submit" value="Delete user">
                     </form>
                     <form action="/changeRoleToUser/${user.id}" method="get">
                         <input type="submit" value="Change to user">
                     </form>
+
                 </td>
-<%--            </c:if>--%>
+            </c:if>
 
             </tr>
         </c:forEach>
+        <form>
+            <input type = "button" value = "Back" onclick="history.back()">
+        </form>
     </table>
 
 </div>
