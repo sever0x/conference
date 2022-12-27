@@ -40,13 +40,9 @@ public class EventEditController extends HttpServlet {
         for (int i = 0; i < topics.length; i++) {
             Topic topic = topicList.get(i);
             topic.setName(topics[i]);
-
             topicList.set(i, topic);
         }
-
         event.setTopics(topicList);
-
-//       event.setDate(Timestamp.valueOf((String) req.getAttribute("date")));
         event.setPlace(req.getParameter("place"));
         eventService.updateEvent(event);
 

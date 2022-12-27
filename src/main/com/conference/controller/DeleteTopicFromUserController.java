@@ -14,25 +14,21 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-@WebServlet("/joinToTopic/*")
-
-public class SpeakerController extends HttpServlet {
+@WebServlet("/deleteTopicFromUser/*")
+public class DeleteTopicFromUserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserService userService = new UserService();
         TopicService topicService = new TopicService();
         HttpSession httpSession = req.getSession();
-        EventService eventService = new EventService();
-        Event event = eventService.getEvent(Integer.parseInt(req.getPathInfo().substring(2)));
         String login = String.valueOf(httpSession.getAttribute("login"));
         User user = userService.getUserByLogin(login);
         Topic topic = topicService.getTopicById(Integer.parseInt(req.getPathInfo().substring(1)));
-        System.out.println(event.getId());
-        userService.updateUserTopic(user, topic);
 
-        resp.sendRedirect(req.getContextPath() + " /permission/"+event.getId());
+        userService.deleteTopicFromUser(user, topic);
+
+        resp.sendRedirect(req.getContextPath() + " /permission/1");
     }
 }
+

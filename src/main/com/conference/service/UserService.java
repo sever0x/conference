@@ -94,10 +94,10 @@ public class UserService implements UserDAO {
     @Override
     public void deleteUser(User user) {
         try (PreparedStatement statement1 = ConnectionConfig.connection.
-                prepareStatement(SQLUser. DELETE_TOPIC_FROM_TOPIC_HAS_USER.QUERY);
-             PreparedStatement  statement =ConnectionConfig.connection.
-                prepareStatement(SQLUser.DELETE_USER.QUERY)) {
-            statement1.setInt(1,user.getId());
+                prepareStatement(SQLUser.DELETE_TOPIC_FROM_TOPIC_HAS_USER.QUERY);
+             PreparedStatement statement = ConnectionConfig.connection.
+                     prepareStatement(SQLUser.DELETE_USER.QUERY)) {
+            statement1.setInt(1, user.getId());
             statement1.executeUpdate();
             statement.setInt(1, user.getId());
             statement.executeUpdate();
@@ -167,6 +167,16 @@ public class UserService implements UserDAO {
 
     }
 
+    public void deleteTopicFromUser(User user, Topic topic) {
+        try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLUser.DELETE_TOPIC_FROM_TOPIC_HAS_USER.QUERY)) {
+            statement.setInt(1, topic.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public boolean getTopicById(Topic topic) {
 
         try (PreparedStatement preparedStatement = ConnectionConfig.connection
@@ -195,7 +205,7 @@ enum SQLUser {
     INSERT_USER_TOPIC_LIST("insert into topic_has_user (topic_id, user_id) values ((?), (?))"),
     GET_USER_BY_TOPIC_ID("select * from topic_has_user where topic_id=?"),
     DELETE_USER("delete from user where id=?"),
-    DELETE_TOPIC_FROM_TOPIC_HAS_USER("delete from topic_has_user where user_id=?");
+    DELETE_TOPIC_FROM_TOPIC_HAS_USER("delete from topic_has_user where topic_id=?");
 
 
     final String QUERY;

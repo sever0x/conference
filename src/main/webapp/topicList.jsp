@@ -25,7 +25,7 @@
           </form>
           </c:if>
           <c:if test="${user.userHasTopic(topic.id) == true}">
-          <form action="/joinToTopic/${topic.id}" method="get">
+          <form action="/deleteTopicFromUser/${topic.id}" method="get">
             <input type="submit" value="UnJoin">
           </form>
           </c:if>

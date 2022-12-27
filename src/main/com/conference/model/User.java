@@ -42,11 +42,7 @@ public class User {
         TopicService topicService = new TopicService();
         List<Integer> list = new ArrayList<>();
         list = topicService.getListAllTopicsByUser(this);
-//        topics = topicService.getAllTopics(1);
-        System.out.println(list.toString());
         int[] idTopic = new int[list.size()];
-
-
         for (int i = 0; i < list.size(); i++) {
             int topic1 = list.get(i);
             idTopic[i] = topic1;

@@ -91,7 +91,6 @@ public class TopicService {
             while (resultSet.next()) {
 
                 list.add(resultSet.getInt("topic_id"));
-                System.out.println(list);
             }
 
         } catch (SQLException e) {
