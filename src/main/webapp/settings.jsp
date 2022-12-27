@@ -27,14 +27,14 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password"><br><br>
             <button type="submit" class="registerbtn"value="Submit">Submit</button>
+            <form>
+                <input class="back-btn" type="button" value="Back" onclick="history.back()">
+            </form>
         </div>
     </div>
-    <form>
-        <input type = "button" value = "Back" onclick="history.back()">
-    </form>
 </form>
 </body>
-<%--</body>--%>
+
 </html>
 
 <!-- <form action="<%= request.getContextPath() %>/settings" method="post">
