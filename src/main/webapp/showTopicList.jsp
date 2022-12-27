@@ -3,7 +3,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="../css/editEvent.css">
-    <title>All events</title>
+    <title>All topics</title>
 </head>
 <body>
 <div class="container">
@@ -24,10 +24,10 @@
                 </td>
             </tr>
         </c:forEach>
-        <form>
-            <input type="button" value="Back" onclick="history.back()">
-        </form>
     </table>
+    <form>
+        <input class="back-btn" type="button" value="Back" onclick="history.back()">
+    </form>
 </div>
 </body>
 </html>
