@@ -96,9 +96,15 @@ textarea {
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
+.container .back-btn {
+    margin-top: 0.5em;
+    background-color: #4caf4feb;
+    color: white;
+}
+
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email],input[type=datetime-local] {
+input[type=text], input[type=password], input[type=email],input[type=datetime-local], input[type=button] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
