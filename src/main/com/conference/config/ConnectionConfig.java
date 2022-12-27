@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class ConnectionConfig {
     private static final String URL = "jdbc:mysql://localhost:3306/epam";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "pass";
+    private static final String USERNAME = "bestuser";
+    private static final String PASSWORD = "bestuser";
 
     public static Connection connection;
 

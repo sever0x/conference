@@ -41,10 +41,8 @@
             <div>
                 <button type="submit" class="registerbtn">Submit</button>
             </div>
-        </div>
-        <form>
             <input class="back-btn" type="button" value="Back" onclick="history.back()">
-        </form>
+        </div>
     </form>
 
 </div>
