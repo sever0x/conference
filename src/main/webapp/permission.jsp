@@ -3,12 +3,6 @@
 <html>
 <head>
     <link rel="stylesheet" href="../css/editEvent.css">
-    <style>
-        .container span {
-            position: absolute;
-            top: 10px;
-        }
-    </style>
     <title>All events</title>
 </head>
 <body>
@@ -76,11 +70,10 @@
 
             </tr>
         </c:forEach>
-        <form>
-            <input type = "button" value = "Back" onclick="history.back()">
-        </form>
     </table>
-
+    <form>
+        <input class="back-btn" type="button" value="Back" onclick="history.back()">
+    </form>
 </div>
 </body>
 </html>
