@@ -27,7 +27,7 @@ public class EventSettingsController extends HttpServlet {
             List<Event> events = eventService.getAllEvent();
             req.setAttribute("events", events);
             req.getRequestDispatcher("edit.jsp").forward(req, resp);
-        }else{
+        } else {
             req.getRequestDispatcher("userNotExist.jsp").forward(req, resp);
         }
 

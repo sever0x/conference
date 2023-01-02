@@ -6,6 +6,7 @@ import com.conference.model.Topic;
 import com.conference.model.User;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,8 @@ public class EventService {
                 .prepareStatement(SQLEvent.INSERT.QUERY, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, event.getName());
             preparedStatement.setString(2, event.getDescribe());
-            preparedStatement.setTimestamp(3, Timestamp.valueOf("2022-12-12 00:00:00"));
+//            preparedStatement.setTimestamp(3, Timestamp.valueOf("2022-12-12 00:00:00"));
+            preparedStatement.setString(3, event.getDate());
             preparedStatement.setString(4, event.getPlace());
 
             preparedStatement.executeUpdate();
@@ -43,6 +45,9 @@ public class EventService {
                 event.setId(resultSet.getInt("id"));
                 event.setName(resultSet.getString("name"));
                 event.setDescribe(resultSet.getString("descr"));
+                String date = new SimpleDateFormat("yyyy-MM-dd HH:mm")
+                        .format(resultSet.getTimestamp("date"));
+                event.setDate(date);
                 event.setTopics(topicService.getAllTopics(event.getId()));
             }
         } catch (SQLException e) {
@@ -61,7 +66,14 @@ public class EventService {
                 event.setPlace(resultSet.getString("place"));
                 event.setName(resultSet.getString("name"));
                 event.setDescribe(resultSet.getString("descr"));
-                event.setDate(resultSet.getTimestamp("date"));
+
+                // xui
+                String date = new SimpleDateFormat("yyyy-MM-dd HH:mm")
+                        .format(resultSet.getTimestamp("date"));
+                event.setDate(date);
+                System.out.println(event.getDate());
+
+//                event.setDate(resultSet.getTimestamp("date"));
                 event.setTopics(topicService.getAllTopics(resultSet.getInt("id")));
                 listEvent.add(event);
             }
@@ -75,9 +87,9 @@ public class EventService {
         try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLEvent.UPDATE.QUERY)) {
             statement.setString(1, event.getName());
             statement.setString(2, event.getDescribe());
-//            statement.setString(3, String.valueOf(event.getDate()));
-            statement.setString(3, event.getPlace());
-            statement.setInt(4, event.getId());
+            statement.setString(3, event.getDate());
+            statement.setString(4, event.getPlace());
+            statement.setInt(5, event.getId());
             topicService.updateTopics(event.getTopics());
 
             statement.executeUpdate();

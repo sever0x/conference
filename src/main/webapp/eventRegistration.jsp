@@ -26,6 +26,9 @@
                 <textarea name="descr" cols="50" rows="10" required></textarea>
             </div>
 
+            <p>Event date</p>
+            <input type="datetime-local" name="date" required>
+
             <p>Topic</p>
             <div class="topic-container">
 

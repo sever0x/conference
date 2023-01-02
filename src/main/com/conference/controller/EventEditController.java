@@ -34,6 +34,7 @@ public class EventEditController extends HttpServlet {
         Event event = eventService.getEvent(Integer.parseInt(req.getPathInfo().substring(1)));
         event.setName(req.getParameter("name"));
         event.setDescribe(req.getParameter("describe"));
+        event.setDate(req.getParameter("date"));
 
         List<Topic> topicList = event.getTopics();
 

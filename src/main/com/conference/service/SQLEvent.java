@@ -7,7 +7,7 @@ enum SQLEvent{
 //        UPDATE("update user set login=?, email=? where id=?"),
     GET_TOPIC_BY_EVENT_ID("select * from topic where event_id=?"),
     INSERT("insert into event (name, descr, date, place) values ((?), (?),(?), (?))"),
-    UPDATE("update event set name=?, descr=?, place=? where id=?");
+    UPDATE("update event set name=?, descr=?, date=?, place=? where id=?");
 
     final String QUERY;
 

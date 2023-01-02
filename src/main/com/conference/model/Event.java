@@ -16,7 +16,7 @@ public class Event {
 
     private String describe;
 
-    private Timestamp date;
+    private String date;
 
     private String place = "Kiev";
 
