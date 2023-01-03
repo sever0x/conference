@@ -18,6 +18,8 @@ public class Topic {
 
     private String name;
 
+    private int topicStatus;
+
 
 
     public Topic(String name) {

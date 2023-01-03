@@ -158,6 +158,8 @@ public class UserService implements UserDAO {
         try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLUser.INSERT_USER_TOPIC_LIST.QUERY)) {
             statement.setInt(1, topic.getId());
             statement.setInt(2, user.getId());
+            statement.setInt(3, user.getTopicStatus());
+
 
 
             statement.executeUpdate();
@@ -202,7 +204,7 @@ enum SQLUser {
     INSERT("insert into user (login, password, email) values ((?), (?), (?))"),
     UPDATE_PERMISSION("update user set permission=? where login=?"),
     CHANGE_USER_PERMISSION("update user set permission=? where login=?"),
-    INSERT_USER_TOPIC_LIST("insert into topic_has_user (topic_id, user_id) values ((?), (?))"),
+    INSERT_USER_TOPIC_LIST("insert into topic_has_user (topic_id, user_id, topic_status ) values ((?), (?), (?))"),
     GET_USER_BY_TOPIC_ID("select * from topic_has_user where topic_id=?"),
     DELETE_USER("delete from user where id=?"),
     DELETE_TOPIC_FROM_TOPIC_HAS_USER("delete from topic_has_user where topic_id=?");

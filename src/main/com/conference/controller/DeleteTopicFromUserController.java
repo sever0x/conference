@@ -21,14 +21,16 @@ public class DeleteTopicFromUserController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserService userService = new UserService();
         TopicService topicService = new TopicService();
+        EventService eventService = new EventService();
         HttpSession httpSession = req.getSession();
         String login = String.valueOf(httpSession.getAttribute("login"));
         User user = userService.getUserByLogin(login);
-        Topic topic = topicService.getTopicById(Integer.parseInt(req.getPathInfo().substring(1)));
-
+        Topic topic = topicService.getTopicById(Integer.parseInt(req.getPathInfo().substring(1,2)));
+        int eventId = topicService.getEventById(topic.getId());
+        user.setTopicStatus(0);
         userService.deleteTopicFromUser(user, topic);
 
-        resp.sendRedirect(req.getContextPath() + " /permission/1");
+        resp.sendRedirect(req.getContextPath() + " /permission/" + eventId);
     }
 }
 

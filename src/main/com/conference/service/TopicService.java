@@ -32,6 +32,23 @@ public class TopicService {
         return topic;
     }
 
+    public int getEventById(int id) {
+        Event event = new Event();
+
+        try (PreparedStatement preparedStatement = ConnectionConfig.connection.prepareStatement(SQLTopic.GET_EVENT_BY_ID.QUERY)) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+               event.setId(resultSet.getInt("event_id"));
+
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return event.getId();
+    }
 
     public List<Topic> getAllTopics(int id) {
 
@@ -55,6 +72,7 @@ public class TopicService {
 
         return topics;
     }
+
     public List<Topic> getAllTopicsByUser(User user) {
         List<Topic> topics = new ArrayList<>();
 
@@ -78,6 +96,7 @@ public class TopicService {
 
         return topics;
     }
+
     public List<Integer> getListAllTopicsByUser(User user) {
         List<Integer> list = new ArrayList<>();
 
@@ -99,6 +118,7 @@ public class TopicService {
 
         return list;
     }
+
 
     public void addTopics(List<Topic> topics, int eventId) {
         for (Topic topic : topics) {

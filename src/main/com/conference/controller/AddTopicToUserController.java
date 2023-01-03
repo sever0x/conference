@@ -18,19 +18,26 @@ import java.io.IOException;
 @WebServlet("/joinToTopic/*")
 
 public class AddTopicToUserController extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserService userService = new UserService();
         TopicService topicService = new TopicService();
-        EventService eventService = new EventService();
         HttpSession httpSession = req.getSession();
-//        Event event = eventService.getEvent(Integer.parseInt(req.getPathInfo().substring(2)));
         String login = String.valueOf(httpSession.getAttribute("login"));
         User user = userService.getUserByLogin(login);
-        Topic topic = topicService.getTopicById(Integer.parseInt(req.getPathInfo().substring(1)));
+        Topic topic = topicService.getTopicById(Integer.parseInt(req.getPathInfo().substring(1,2)));
+        int eventId = topicService.getEventById(Integer.parseInt(req.getPathInfo().substring(1,2)));
+        int status = topicService.getEventById(Integer.parseInt(req.getPathInfo().substring(2)));
+        if (status == 0) {
+            user.setTopicStatus(0);
+        } else {
+            user.setTopicStatus(1);
+        }
+
 
         userService.updateUserTopic(user, topic);
+        resp.sendRedirect(req.getContextPath() + " /permission/" + eventId);
 
-        resp.sendRedirect(req.getContextPath() + " /permission/1");
     }
 }

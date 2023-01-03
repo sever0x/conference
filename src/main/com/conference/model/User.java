@@ -1,6 +1,7 @@
 package com.conference.model;
 
 import com.conference.service.TopicService;
+import com.conference.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,8 @@ public class User {
     private List<Topic> topics = new ArrayList<>();
 
     private Topic topic;
+    private int topicStatus;
+
 
     public List<Topic> addTopic(Topic topic) {
         topics.add(topic);
@@ -52,10 +55,27 @@ public class User {
 
         for (int i = 0; i < idTopic.length; i++) {
             if (idTopic[i] == id) {
-                return  true;
+                return true;
             }
 
         }
         return false;
+    }
+
+    public void setTopicStatus(int status) {
+        topicStatus = status;
+    }
+
+    public int getTopicStatus(int id) {
+        TopicService topicService = new TopicService();
+        List<Topic> topics = topicService.getAllTopicsByUser(this);
+        int status = 0;
+        for (int i = 0; i < topics.size(); i++) {
+            Topic topic1 = topics.get(i);
+            if (topic1.getId() == id) {
+                status = topic1.getTopicStatus();
+            }
+        }
+        return status;
     }
 }

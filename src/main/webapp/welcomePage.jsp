@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="conference-footer">
-                        <c:if test="${sessionScope.role == 'SPEAKER'}">
+                        <c:if test="${sessionScope.role == 'USER'}">
                             <form action="<%= request.getContextPath() %>/permission/${event.id}">
 
                                 <button id="btn-speaker">Join as a Speaker</button>

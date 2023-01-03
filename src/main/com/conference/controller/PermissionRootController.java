@@ -20,7 +20,7 @@ import java.util.List;
 public class PermissionRootController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        HttpSession httpSession = req.getSession();
         String login = (String) req.getSession().getAttribute("login");
         UserService userService = new UserService();
         TopicService topicService = new TopicService();
@@ -31,9 +31,11 @@ public class PermissionRootController extends HttpServlet {
         for (Topic topic : topics) {
             System.out.println(topic);
         }
-        EventService eventService=new EventService();
+        EventService eventService = new EventService();
         int eventId = Integer.parseInt(req.getPathInfo().substring(1));
+
         Event event = eventService.getEvent(eventId);
+        httpSession.setAttribute("id", event.getId());
 
         req.setAttribute("event", event);
         req.setAttribute("user", user);
