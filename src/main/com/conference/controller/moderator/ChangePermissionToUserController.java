@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet("/changeRoleToUser/*")
 public class ChangePermissionToUserController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserService userService = new UserService();
         User user = userService.getUserById(Integer.parseInt(req.getPathInfo().substring(1)));
         user.setRole(Role.USER);

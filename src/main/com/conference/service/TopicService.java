@@ -1,7 +1,6 @@
 package com.conference.service;
 
 import com.conference.config.ConnectionConfig;
-import com.conference.model.Event;
 import com.conference.model.Topic;
 import com.conference.model.User;
 
@@ -16,15 +15,14 @@ public class TopicService {
     public Topic getTopicById(int id) {
         Topic topic = new Topic();
 
-
-        try (PreparedStatement preparedStatement = ConnectionConfig.connection.prepareStatement(SQLTopic.GET_BY_ID.QUERY)) {
+        try (PreparedStatement preparedStatement = ConnectionConfig.connection
+                .prepareStatement(SQLTopic.GET_BY_ID.QUERY)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
                 topic.setId(resultSet.getInt("id"));
                 topic.setName(resultSet.getString("name"));
-
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -32,22 +30,20 @@ public class TopicService {
         return topic;
     }
 
-    public int getEventById(int id) {
-        Event event = new Event();
-
-        try (PreparedStatement preparedStatement = ConnectionConfig.connection.prepareStatement(SQLTopic.GET_EVENT_BY_ID.QUERY)) {
+    public int getEventIdByTopicId(int id) {
+        try (PreparedStatement preparedStatement = ConnectionConfig.connection
+                .prepareStatement(SQLTopic.GET_EVENT_ID_BY_TOPIC_ID.QUERY)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-               event.setId(resultSet.getInt("event_id"));
-
+                return resultSet.getInt("event_id");
 
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return event.getId();
+        return 0;
     }
 
     public List<Topic> getAllTopics(int id) {
@@ -146,5 +142,24 @@ public class TopicService {
                 throw new RuntimeException(e);
             }
         }
+    }
+}
+
+enum SQLTopic {
+    SELECT_ALL("select * from event"),
+    GET_BY_ID("select * from topic where id=?"),
+
+    GET_EVENT_ID_BY_TOPIC_ID("select event_id from topic where id=?"),
+    GET_TOPICS_BY_USER("select * from topic_has_user where user_id=?"),
+
+    GET_TOPICS_STATUS_BY_USER("select topic_status from topic_has_user where user_id=?"),
+    INSERT("insert into topic (name, event_id) values ((?), (?))"),
+    UPDATE("update topic set name=? where id=?");
+
+
+    final String QUERY;
+
+    SQLTopic(String QUERY) {
+        this.QUERY = QUERY;
     }
 }

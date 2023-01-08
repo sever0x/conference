@@ -2,12 +2,12 @@ package com.conference.service;
 
 import com.conference.config.ConnectionConfig;
 import com.conference.model.Event;
-import com.conference.model.Topic;
-import com.conference.model.User;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +20,6 @@ public class EventService {
                 .prepareStatement(SQLEvent.INSERT.QUERY, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, event.getName());
             preparedStatement.setString(2, event.getDescribe());
-//            preparedStatement.setTimestamp(3, Timestamp.valueOf("2022-12-12 00:00:00"));
             preparedStatement.setString(3, event.getDate());
             preparedStatement.setString(4, event.getPlace());
 
@@ -67,13 +66,10 @@ public class EventService {
                 event.setName(resultSet.getString("name"));
                 event.setDescribe(resultSet.getString("descr"));
 
-                // xui
                 String date = new SimpleDateFormat("yyyy-MM-dd HH:mm")
                         .format(resultSet.getTimestamp("date"));
                 event.setDate(date);
-                System.out.println(event.getDate());
 
-//                event.setDate(resultSet.getTimestamp("date"));
                 event.setTopics(topicService.getAllTopics(resultSet.getInt("id")));
                 listEvent.add(event);
             }
@@ -99,4 +95,18 @@ public class EventService {
     }
 
 
+}
+
+enum SQLEvent{
+    SELECT_ALL("select * from event"),
+    GET_BY_ID("select * from event where id=?"),
+    GET_TOPIC_BY_EVENT_ID("select id, name from topic where event_id=?"),
+    INSERT("insert into event (name, descr, date, place) values ((?), (?),(?), (?))"),
+    UPDATE("update event set name=?, descr=?, date=?, place=? where id=?");
+
+    final String QUERY;
+
+    SQLEvent(String QUERY) {
+        this.QUERY = QUERY;
+    }
 }

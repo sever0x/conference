@@ -170,7 +170,8 @@ public class UserService implements UserDAO {
     }
 
     public void deleteTopicFromUser(User user, Topic topic) {
-        try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLUser.DELETE_TOPIC_FROM_TOPIC_HAS_USER.QUERY)) {
+        try (PreparedStatement statement = ConnectionConfig.connection
+                .prepareStatement(SQLUser.DELETE_TOPIC_FROM_TOPIC_HAS_USER.QUERY)) {
             statement.setInt(1, topic.getId());
             statement.executeUpdate();
         } catch (SQLException e) {

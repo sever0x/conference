@@ -1,4 +1,4 @@
-package com.conference.controller;
+package com.conference.controller.topic;
 
 import com.conference.model.Event;
 import com.conference.model.Topic;
@@ -23,14 +23,10 @@ public class PermissionRootController extends HttpServlet {
         HttpSession httpSession = req.getSession();
         String login = (String) req.getSession().getAttribute("login");
         UserService userService = new UserService();
-        TopicService topicService = new TopicService();
         User user = userService.getUserByLogin(login);
 
         userService.addUserPermission(user);
-        List<Topic> topics = topicService.getAllTopicsByUser(user);
-        for (Topic topic : topics) {
-            System.out.println(topic);
-        }
+
         EventService eventService = new EventService();
         int eventId = Integer.parseInt(req.getPathInfo().substring(1));
 

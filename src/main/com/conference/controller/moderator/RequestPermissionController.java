@@ -1,6 +1,5 @@
 package com.conference.controller.moderator;
 
-import com.conference.model.Event;
 import com.conference.model.Role;
 import com.conference.model.User;
 import com.conference.service.UserService;
@@ -11,7 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/request")

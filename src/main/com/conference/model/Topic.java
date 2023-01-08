@@ -1,13 +1,8 @@
 package com.conference.model;
 
-import com.conference.service.TopicService;
-import com.conference.service.UserService;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -18,9 +13,7 @@ public class Topic {
 
     private String name;
 
-//    private int topicStatus;
-
-
+    private Event event;
 
     public Topic(String name) {
         this.name = name;
@@ -30,10 +23,13 @@ public class Topic {
         this.id = id;
         this.name = name;
     }
+
     public Topic(int id) {
         this.id = id;
     }
-    public Topic(){};
+
+    public Topic() {
+    }
 
 
 }

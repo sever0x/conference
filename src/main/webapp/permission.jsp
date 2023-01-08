@@ -58,10 +58,10 @@
 
                 <td>
 
-                    <form action="/deleteUser/${user.id}" method="get">
+                    <form action="/deleteUser/${user.id}" method="post">
                         <input type="submit" value="Delete user">
                     </form>
-                    <form action="/changeRoleToUser/${user.id}" method="get">
+                    <form action="/changeRoleToUser/${user.id}" method="post">
                         <input type="submit" value="Change to user">
                     </form>
 
