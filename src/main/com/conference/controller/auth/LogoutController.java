@@ -1,4 +1,4 @@
-package com.conference.controller;
+package com.conference.controller.auth;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

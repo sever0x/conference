@@ -18,7 +18,7 @@ public class Topic {
 
     private String name;
 
-    private int topicStatus;
+//    private int topicStatus;
 
 
 

@@ -1,4 +1,4 @@
-package com.conference.controller;
+package com.conference.controller.user;
 
 import com.conference.dao.UserDAO;
 import com.conference.model.Role;

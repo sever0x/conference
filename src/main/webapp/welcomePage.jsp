@@ -77,10 +77,11 @@
                         <br>
                         <p>Topics:</p>
 
+                        <c:set var="i" value="0" scope="page"/>
                         <c:forEach items="${event.topics}" var="topic">
 
-                            <h2>${topic.name}</h2>
-                            <h2>${topic.id}</h2>
+                            <c:set var="i" value="${i + 1}" scope="page"/>
+                            <h2>${i}. ${topic.name}</h2>
 
                         </c:forEach>
                     </div>

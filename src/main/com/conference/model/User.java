@@ -72,9 +72,9 @@ public class User {
         int status = 0;
         for (int i = 0; i < topics.size(); i++) {
             Topic topic1 = topics.get(i);
-            if (topic1.getId() == id) {
-                status = topic1.getTopicStatus();
-            }
+//            if (topic1.getId() == id) {
+//                status = topic1.getTopicStatus();
+//            }
         }
         return status;
     }

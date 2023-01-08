@@ -1,4 +1,4 @@
-package com.conference.controller;
+package com.conference.controller.auth;
 
 import com.conference.config.ConnectionConfig;
 import com.conference.model.Role;

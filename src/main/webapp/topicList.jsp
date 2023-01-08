@@ -19,25 +19,25 @@
                 <td>${topic.name}</td>
 
                 <td>
-                    <c:if test="${user.userHasTopic(topic.id) == false && user.getTopicStatus(topic.id)==0}">
+                    <c:if test="${user.userHasTopic(topic.id) == false}">
                     <form action="/joinToTopic/${topic.id}${0}" method="get">
 
                         <input type="submit" value="Join">
                     </form>
                     </c:if>
-                    <c:if test="${user.userHasTopic(topic.id) == true&& user.getTopicStatus(topic.id)==0}">
+                    <c:if test="${user.userHasTopic(topic.id) == true}">
                     <form action="/deleteTopicFromUser/${topic.id}${0}" method="get">
                         <input type="submit" value="UnJoin">
                     </form>
                     </c:if>
                 <td>
-                    <c:if test="${user.userHasTopic(topic.id) == false&& user.getTopicStatus(topic.id)==0}">
+                    <c:if test="${user.userHasTopic(topic.id) == false}">
                         <form action="/joinToTopic/${topic.id}${1}" method="get">
                             <input type="submit" value="Join As Free Speaker">
                         </form>
                     </c:if>
-                    <c:if test="${user.userHasTopic(topic.id) == true&& user.getTopicStatus(topic.id)==0}">
-                        <form action="/deleteTopicFromUser/${topic.id}/${1}" method="get">
+                    <c:if test="${user.userHasTopic(topic.id) == true}">
+                        <form action="/deleteTopicFromUser/${topic.id}${1}" method="get">
                             <input type="submit" value="UnJoin As Free Speaker">
                         </form>
                     </c:if>

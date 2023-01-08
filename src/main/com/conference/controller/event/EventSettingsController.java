@@ -1,4 +1,4 @@
-package com.conference.controller;
+package com.conference.controller.event;
 
 import com.conference.model.Event;
 import com.conference.model.Role;

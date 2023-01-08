@@ -17,8 +17,8 @@
             <th>Permission</th>
 
         </tr>
-        <jsp:useBean id="list2" scope="request" type="java.util.List"/>
-        <c:forEach items="${list2}" var="user">
+        <jsp:useBean id="allUsers" scope="request" type="java.util.List"/>
+        <c:forEach items="${allUsers}" var="user">
             <c:if test="${user.role=='USER'&& user.permission ==1}">
 
                 <td>${user.id}</td>
@@ -28,7 +28,8 @@
 
                 <td>
 
-                    <form action="/changeRoleToSpeaker/${user.id}" method="get">
+                    <form action="/request" method="post">
+                        <input type="hidden" name="id" value="${user.id}">
                         <input type="submit" value="Change as a speaker">
 
                     </form>
@@ -47,8 +48,7 @@
             <th>Permission</th>
 
         </tr>
-<%--        <jsp:useBean id="list2" scope="request" type="java.util.List"/>--%>
-        <c:forEach items="${list2}" var="user">
+        <c:forEach items="${allUsers}" var="user">
 <%--            <c:if test="${user.role=='USER'&& user.permission ==1}">--%>
             <c:if test="${user.role!='MODERATOR'}">
                 <td>${user.id}</td>
