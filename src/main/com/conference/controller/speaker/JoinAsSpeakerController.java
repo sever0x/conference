@@ -24,13 +24,16 @@ public class JoinAsSpeakerController extends HttpServlet {
     /**
      * По ивенту получаем все топики и отправляем на страницу
      * На странице будут отображены все топики и, в зависимости от того, есть ли у топика спикер,
-     * будет доступна функция присоедениться к топику
+     * будет доступна функция присоединиться к топику
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Topic> topics = topicService.getAllTopicsWithSpeakers(Integer.parseInt(req.getPathInfo().substring(1)));
 
+        System.out.println(req.getContextPath() + req.getServletPath() + req.getPathInfo());
+
         req.setAttribute("topics", topics);
+        req.setAttribute("eventId", req.getPathInfo().substring(1));
         req.getRequestDispatcher("/topicList.jsp").forward(req, resp);
     }
 
@@ -40,6 +43,13 @@ public class JoinAsSpeakerController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        int eventId = topicService.getEventIdByTopicId(Integer.parseInt(req.getParameter("topicId")));
+
+        topicService.makeRequestAsTopicSpeaker(
+                (Integer) req.getSession().getAttribute("id"),
+                Integer.parseInt(req.getParameter("topicId")));
+
+
+        resp.sendRedirect(req.getContextPath() + "/speaker/" + eventId);
     }
 }

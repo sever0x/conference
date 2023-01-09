@@ -19,7 +19,8 @@
                 <td>${topic.name}</td>
                 <td>${topic.speakerLogin}</td>
                 <td>
-                    <form action="/joinToTopic/${topic.id}${0}" method="post">
+                    <form action="/speaker/${eventId}" method="post">
+                        <input type="hidden" name="topicId" value="${topic.id}">
                         <c:choose>
                             <c:when test="${topic.speakerLogin==null}">
                                 <input type="submit" value="Join">

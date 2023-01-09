@@ -168,6 +168,19 @@ public class TopicService {
 
         return topics;
     }
+
+    public void makeRequestAsTopicSpeaker(int userId, int topicId) {
+        try (PreparedStatement statement = ConnectionConfig.connection
+                .prepareStatement(SQLTopic.CREATE_REQUEST.QUERY)) {
+
+            statement.setInt(1, userId);
+            statement.setInt(2, topicId);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 enum SQLTopic {
@@ -185,8 +198,9 @@ enum SQLTopic {
 
     GET_TOPICS_STATUS_BY_USER("select topic_status from topic_has_user where user_id=?"),
     INSERT("insert into topic (name, event_id) values ((?), (?))"),
-    UPDATE("update topic set name=? where id=?");
+    UPDATE("update topic set name=? where id=?"),
 
+    CREATE_REQUEST("insert into speaker_request (user_id, topic_id) values ((?), (?))");
 
     final String QUERY;
 
