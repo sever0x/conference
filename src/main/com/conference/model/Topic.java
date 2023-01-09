@@ -13,7 +13,13 @@ public class Topic {
 
     private String name;
 
-    private Event event;
+    private String speakerLogin;
+
+    public Topic(int id, String name, String speakerLogin) {
+        this.id = id;
+        this.name = name;
+        this.speakerLogin = speakerLogin;
+    }
 
     public Topic(String name) {
         this.name = name;

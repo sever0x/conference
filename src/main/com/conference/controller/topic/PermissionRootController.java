@@ -35,7 +35,7 @@ public class PermissionRootController extends HttpServlet {
 
         req.setAttribute("event", event);
         req.setAttribute("user", user);
-        req.getRequestDispatcher("/topicList.jsp").forward(req, resp);
+        req.getRequestDispatcher("/topicListOld.jsp").forward(req, resp);
 
 
 //        req.getRequestDispatcher("topicList").forward(req,resp);

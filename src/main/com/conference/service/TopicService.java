@@ -12,6 +12,8 @@ import java.util.List;
 
 public class TopicService {
 
+    private UserService userService = new UserService();
+
     public Topic getTopicById(int id) {
         Topic topic = new Topic();
 
@@ -143,10 +145,39 @@ public class TopicService {
             }
         }
     }
+
+    public List<Topic> getAllTopicsWithSpeakers(int id) {
+        List<Topic> topics = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = ConnectionConfig.connection
+                .prepareStatement(SQLTopic.SELECT_ALL_TOPICS_BY_EVENT_WITH_SPEAKERS.QUERY)) {
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Topic topic = new Topic(resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("login"));
+                topics.add(topic);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return topics;
+    }
 }
 
 enum SQLTopic {
     SELECT_ALL("select * from event"),
+    /**
+     * Соединяет две таблицы topic и user
+     */
+    SELECT_ALL_TOPICS_BY_EVENT_WITH_SPEAKERS("select topic.id, topic.name, user.login from topic " +
+            "left join topic_has_user on topic_has_user.topic_id = topic.id " +
+            "left join user on user.id = topic_has_user.user_id where event_id=?"),
     GET_BY_ID("select * from topic where id=?"),
 
     GET_EVENT_ID_BY_TOPIC_ID("select event_id from topic where id=?"),

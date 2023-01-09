@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css/bobik.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 
     <title>Account</title>
 </head>
@@ -45,12 +45,7 @@
                 <button id="btn-logout">Log Out</button>
             </form>
             <c:if test="${sessionScope.role == 'MODERATOR'}">
-                <form action="<%= request.getContextPath() %>/edit">
-                    <button id="btn-edit-event">Edit Event</button>
-                </form>
-                <form action="<%= request.getContextPath() %>/request">
-                    <button>Request List</button>
-                </form>
+
             </c:if>
         </div>
     </div>
@@ -75,13 +70,13 @@
                         <p>${event.date}</p>
                         <p>${event.place}</p>
                         <br>
-                        <p>Topics:</p>
+                        <h3>Topics:</h3>
 
                         <c:set var="i" value="0" scope="page"/>
                         <c:forEach items="${event.topics}" var="topic">
 
                             <c:set var="i" value="${i + 1}" scope="page"/>
-                            <h2>${i}. ${topic.name}</h2>
+                            <p>${i}. ${topic.name}</p>
 
                         </c:forEach>
                     </div>
@@ -91,7 +86,7 @@
 
                     <div class="conference-footer">
                         <c:if test="${sessionScope.role == 'USER'}">
-                            <form action="<%= request.getContextPath() %>/permission/${event.id}">
+                            <form action="<%= request.getContextPath() %>/speaker/${event.id}">
 
                                 <button id="btn-speaker">Join as a Speaker</button>
 
@@ -108,8 +103,15 @@
     <div class="container-right">
         <%--        <c:if test="${sessionScope.role == 'MODERATOR'}">--%>
         <c:if test="${sessionScope.role == 'MODERATOR'}">
+            <h2>Admin Panel</h2>
             <form action="<%= request.getContextPath() %>/eventRegistration">
                 <button>Add event</button>
+            </form>
+            <form action="<%= request.getContextPath() %>/edit">
+                <button>Edit Event</button>
+            </form>
+            <form action="<%= request.getContextPath() %>/request">
+                <button>Request List</button>
             </form>
         </c:if>
         <c:if test="${sessionScope.role == 'SPEAKER'}">
