@@ -47,6 +47,7 @@ public class EventService {
                 String date = new SimpleDateFormat("yyyy-MM-dd HH:mm")
                         .format(resultSet.getTimestamp("date"));
                 event.setDate(date);
+                event.setPlace(resultSet.getString("place"));
                 event.setTopics(topicService.getAllTopics(event.getId()));
             }
         } catch (SQLException e) {

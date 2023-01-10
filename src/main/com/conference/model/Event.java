@@ -18,7 +18,7 @@ public class Event {
 
     private String date;
 
-    private String place = "Kiev";
+    private String place;
 
     private List<Topic> topics;
 

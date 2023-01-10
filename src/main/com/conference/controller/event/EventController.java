@@ -28,13 +28,14 @@ public class EventController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String eventName = req.getParameter("name");
         String eventDescribe = req.getParameter("descr");
+        String eventPlace = req.getParameter("place");
         String[] topicsName = req.getParameterValues("topic");
 
         Event event = new Event();
         event.setName(eventName);
         event.setDescribe(eventDescribe);
         event.setDate(req.getParameter("date"));
-        event.setPlace("Kiev");
+        event.setPlace(eventPlace);
 
         List<Topic> topics = new ArrayList<>();
 
