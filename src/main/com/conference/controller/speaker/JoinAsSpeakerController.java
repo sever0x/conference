@@ -30,8 +30,6 @@ public class JoinAsSpeakerController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Topic> topics = topicService.getAllTopicsWithSpeakers(Integer.parseInt(req.getPathInfo().substring(1)));
 
-        System.out.println(req.getContextPath() + req.getServletPath() + req.getPathInfo());
-
         req.setAttribute("topics", topics);
         req.setAttribute("eventId", req.getPathInfo().substring(1));
         req.getRequestDispatcher("/topicList.jsp").forward(req, resp);
@@ -44,11 +42,10 @@ public class JoinAsSpeakerController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int eventId = topicService.getEventIdByTopicId(Integer.parseInt(req.getParameter("topicId")));
+        int topicId = Integer.parseInt(req.getParameter("topicId"));
+        int userId = (int) req.getSession().getAttribute("id");
 
-        topicService.makeRequestAsTopicSpeaker(
-                (Integer) req.getSession().getAttribute("id"),
-                Integer.parseInt(req.getParameter("topicId")));
-
+        topicService.makeRequestAsTopicSpeaker(userId, topicId);
 
         resp.sendRedirect(req.getContextPath() + "/speaker/" + eventId);
     }

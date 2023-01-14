@@ -23,10 +23,10 @@
                         <input type="hidden" name="topicId" value="${topic.id}">
                         <c:choose>
                             <c:when test="${topic.speakerLogin==null}">
-                                <input type="submit" value="Join">
+                                <input type="submit" value="Propose as speaker">
                             </c:when>
                             <c:otherwise>
-                                <input type="submit" value="Join" disabled>
+                                <input type="submit" value="Propose as speaker" disabled>
                             </c:otherwise>
                         </c:choose>
                     </form>

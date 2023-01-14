@@ -38,6 +38,7 @@ public class LoginController extends HttpServlet {
                 req.getSession().setAttribute("login", login);
                 req.getSession().setAttribute("role", resultSet.getString("role"));
 
+                //TODO почему бы нам просто не добавлять юзера в сессию? или переделать
 
 //                req.getRequestDispatcher("welcomePage.jsp").forward(req, resp);
                 resp.sendRedirect(req.getContextPath() + "/welcome");

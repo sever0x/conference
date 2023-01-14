@@ -2,6 +2,7 @@ package com.conference.service;
 
 import com.conference.config.ConnectionConfig;
 import com.conference.model.Event;
+import com.conference.model.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -95,7 +96,16 @@ public class EventService {
         }
     }
 
+    public void joinToEvent(int userId, int eventId) {
+        try (PreparedStatement statement = ConnectionConfig.connection.prepareStatement(SQLEvent.JOIN_TO_EVENT.QUERY)) {
+            statement.setInt(1, eventId);
+            statement.setInt(2, userId);
 
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 enum SQLEvent{
@@ -103,7 +113,8 @@ enum SQLEvent{
     GET_BY_ID("select * from event where id=?"),
     GET_TOPIC_BY_EVENT_ID("select id, name from topic where event_id=?"),
     INSERT("insert into event (name, descr, date, place) values ((?), (?),(?), (?))"),
-    UPDATE("update event set name=?, descr=?, date=?, place=? where id=?");
+    UPDATE("update event set name=?, descr=?, date=?, place=? where id=?"),
+    JOIN_TO_EVENT("insert into event_has_user (event_id, user_id) values ((?), (?))");
 
     final String QUERY;
 
