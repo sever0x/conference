@@ -22,11 +22,15 @@ public class RegistrationController extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String email = req.getParameter("email");
+        String first_name = req.getParameter("first_name");
+        String second_name = req.getParameter("second_name");
 
         User user = new User();
         user.setLogin(login);
         user.setPassword(password);
         user.setEmail(email);
+        user.setFirstName(first_name);
+        user.setSecondName(second_name);
 
         try {
             userService.saveNewUser(user);

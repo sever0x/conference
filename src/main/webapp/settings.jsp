@@ -22,11 +22,20 @@
             <p> ${user.role}</p><br><br>
             <label for="login">Login:</label>
             <input type="text" id="login" name="login" value="${user.login}"><br><br>
+
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" value="${user.firstName}"><br><br>
+
+            <label for="second_name">Second Name:</label>
+            <input type="text" id="second_name" name="second_name" value="${user.secondName}"><br><br>
+
             <label for="email">Email :</label>
             <input type="email" id="email" name="email" value="${user.email}"><br><br>
+
             <label for="password">Password:</label>
             <input type="password" id="password" name="password"><br><br>
-            <button type="submit" class="registerbtn"value="Submit">Submit</button>
+
+            <button type="submit" class="registerbtn" value="Submit">Submit</button>
             <form>
                 <input class="back-btn" type="button" value="Back" onclick="history.back()">
             </form>

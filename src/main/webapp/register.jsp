@@ -19,6 +19,12 @@
         <label for="login"><b>Login</b></label>
         <input type="text" placeholder="Enter Login" name="login" required>
 
+        <label for="first_name"><b>First Name</b></label>
+        <input type="text" placeholder="Enter First Name" name="first_name" required>
+
+        <label for="second_name"><b>Second Name</b></label>
+        <input type="text" placeholder="Enter Second Name" name="second_name" required>
+
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required>
 

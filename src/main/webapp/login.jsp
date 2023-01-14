@@ -18,8 +18,12 @@
 
         <label for="password"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
+
+
         <hr>
         <button type="submit" class="registerbtn">Sign in</button>
+
+
     </div>
 </form>
 </body>

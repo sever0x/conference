@@ -21,6 +21,8 @@ public class UserService implements UserDAO {
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getPassword());
             statement.setString(3, user.getEmail());
+            statement.setString(4, user.getFirstName());
+            statement.setString(5, user.getSecondName());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -34,7 +36,9 @@ public class UserService implements UserDAO {
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getEmail());
             statement.setString(3, String.valueOf(user.getRole()));
-            statement.setInt(4, user.getId());
+            statement.setString(4, String.valueOf(user.getFirstName()));
+            statement.setString(5, String.valueOf(user.getSecondName()));
+            statement.setInt(6, user.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -201,8 +205,8 @@ enum SQLUser {
     SELECT_ALL("select * from user"),
     GET_BY_ID("select * from user where id=?"),
     GET_BY_LOGIN("select * from user where login=?"),
-    UPDATE("update user set login=?, email=?, role=? where id=?"),
-    INSERT("insert into user (login, password, email) values ((?), (?), (?))"),
+    UPDATE("update user set login=?, email=?, role=?, first_name=?, second_name=? where id=?"),
+    INSERT("insert into user (login, password, email, first_name, second_name) values ((?), (?), (?), (?), (?))"),
     UPDATE_PERMISSION("update user set permission=? where login=?"),
     CHANGE_USER_PERMISSION("update user set permission=? where login=?"),
     INSERT_USER_TOPIC_LIST("insert into topic_has_user (topic_id, user_id) values ((?), (?))"),

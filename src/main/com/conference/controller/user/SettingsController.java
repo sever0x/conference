@@ -36,6 +36,9 @@ public class SettingsController extends HttpServlet {
         String newEmail = req.getParameter("email");
         String newPassword = req.getParameter("password");
         String role = req.getParameter("role");
+        String firstName= req.getParameter("first_name");
+        String secondName = req.getParameter("second_name");
+
 
         HttpSession httpSession = req.getSession();
 
@@ -45,6 +48,9 @@ public class SettingsController extends HttpServlet {
         User user = userService.getUserById((int) httpSession.getAttribute("id"));
         user.setLogin(newLogin);
         user.setEmail(newEmail);
+        user.setFirstName(firstName);
+        user.setSecondName(secondName);
+
         userService.updateUser(user);
 
         resp.sendRedirect(req.getContextPath() + "/");

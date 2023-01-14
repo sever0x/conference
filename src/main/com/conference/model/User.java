@@ -30,6 +30,10 @@ public class User {
 
     private Topic topic;
 
+    private String firstName;
+
+    private String secondName;
+
 
     public List<Topic> addTopic(Topic topic) {
         topics.add(topic);
